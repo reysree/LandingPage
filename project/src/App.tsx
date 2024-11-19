@@ -201,7 +201,7 @@ function App() {
                 image:
                   "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=500",
                 tags: ["React.js", "SpringBoot", "AWS"],
-                link: "#",
+                link: "https://github.com/reysree/Connect",
               },
               {
                 title: "Fest Management",
@@ -210,7 +210,7 @@ function App() {
                 image:
                   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=500",
                 tags: ["React", "SpringBoot", "MySQL"],
-                link: "#",
+                link: "https://github.com/reysree/FestManagement",
               },
             ].map((project, index) => (
               <motion.div
@@ -363,7 +363,7 @@ function App() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="mailto:your.email@example.com"
+            href="mailto:sreeram.bangaroo@gmail.com"
             className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary/90 transition-colors"
           >
             Send me a message
