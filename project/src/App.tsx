@@ -146,7 +146,7 @@ function App() {
                 icon: Code2,
                 title: "Development",
                 description:
-                  "2+ years of experience in full-stack development, specializing in modern web technologies using AI.",
+                  "3 years of experience in full-stack development, specializing in modern web technologies using AI.",
               },
               {
                 icon: Briefcase,
@@ -204,13 +204,13 @@ function App() {
                 link: "https://github.com/reysree/Connect",
               },
               {
-                title: "Fest Management",
+                title: "SQL Chatbot",
                 description:
-                  "A Reactive web application to manage fests in university",
+                  "A chatbot that takes text queries, generates SQL, retrieves data from the database, and displays it in a user-friendly table format.",
                 image:
                   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=500",
-                tags: ["React", "SpringBoot", "MySQL"],
-                link: "https://github.com/reysree/FestManagement",
+                tags: ["Next.js", "OpenAI", "MySQL"],
+                link: "https://github.com/reysree/sql-chatbot",
               },
             ].map((project, index) => (
               <motion.div

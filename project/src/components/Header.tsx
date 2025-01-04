@@ -1,8 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { SocialLink } from "./SocialLink";
 
 export default function Header() {
+  const socialLinks = [
+    { Icon: Github, href: "https://github.com/reysree", newTab: true },
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/in/sreerambangaru/",
+      newTab: true,
+    },
+    {
+      Icon: Mail,
+      href: "mailto:sreeram.bangaroo@gmail.com",
+      newTab: false,
+    },
+    {
+      Icon: FileText,
+      href: "/path/to/your-resume.pdf",
+      label: "Resume",
+      newTab: true,
+    },
+  ];
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -32,30 +53,8 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            {[
-              { Icon: Github, href: "https://github.com/reysree" },
-              {
-                Icon: Linkedin,
-                href: "https://www.linkedin.com/in/sreerambangaru/",
-              },
-              { Icon: Mail, href: "mailto:sreeram.bangaroo@gmail.com" },
-              {
-                Icon: FileText,
-                href: "/path/to/your-resume.pdf", // Replace with the actual path to your resume
-                label: "Resume",
-              },
-            ].map(({ Icon, href, label }) => (
-              <motion.a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="text-valorant-white/80 hover:text-valorant-red transition-colors"
-              >
-                <Icon size={20} />
-                {label && <span className="ml-1">{label}</span>}
-              </motion.a>
+            {socialLinks.map((props) => (
+              <SocialLink key={props.href} {...props} />
             ))}
           </div>
         </div>
