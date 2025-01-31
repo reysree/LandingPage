@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   Github,
@@ -85,7 +84,7 @@ function App() {
               <img
                 src={profileImage}
                 alt="Profile"
-                className="relative w-75 h-75 object-cover border-2 border-valorant-red"
+                className="relative w-75 h-75 object-cover border-2"
               />
             </motion.div>
 

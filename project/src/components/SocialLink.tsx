@@ -25,7 +25,7 @@ export function SocialLink({ Icon, href, label, newTab }: SocialLinkProps) {
       target={newTab ? "_blank" : undefined}
       rel={newTab ? "noopener noreferrer" : undefined}
       whileHover={{ scale: 1.1, rotate: 5 }}
-      className="text-valorant-white/80 hover:text-valorant-red transition-colors"
+      className="transition-colors"
     >
       <Icon size={20} />
       {label && <span className="ml-1">{label}</span>}
