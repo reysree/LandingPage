@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import {
   Github,
@@ -9,7 +11,7 @@ import {
   GraduationCap,
   FileText,
 } from "lucide-react";
-import profileImage from "./assets/sreeram_github.jpg";
+// import profileImage from "../../public/sreeram_github.jpg";
 
 function App() {
   return (
@@ -82,7 +84,7 @@ function App() {
             >
               <div className="absolute inset-0 bg-primary/10 rounded-3xl rotate-6"></div>
               <img
-                src={profileImage}
+                src="/sreeram_github.jpg"
                 alt="Profile"
                 className="relative w-75 h-75 object-cover border-2"
               />

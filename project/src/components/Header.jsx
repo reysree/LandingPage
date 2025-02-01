@@ -44,7 +44,7 @@ export default function Header() {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 whileHover={{ y: -2 }}
-                className="text-valorant-white/80 transition-colors"
+                className="transition-colors"
               >
                 {item}
               </motion.a>
