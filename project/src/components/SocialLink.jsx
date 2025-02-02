@@ -1,16 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import PropTypes from "prop-types";
 
-interface SocialLinkProps {
-  Icon: LucideIcon;
-  href: string;
-  label?: string;
-  newTab?: boolean;
-}
-
-export function SocialLink({ Icon, href, label, newTab }: SocialLinkProps) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+const SocialLink = ({ Icon, href, label, newTab }) => {
+  const handleClick = (e) => {
     if (href.startsWith("mailto:")) {
       e.preventDefault();
       console.log("Attempting to open email client...");
@@ -31,4 +24,13 @@ export function SocialLink({ Icon, href, label, newTab }: SocialLinkProps) {
       {label && <span className="ml-1">{label}</span>}
     </motion.a>
   );
-}
+};
+
+SocialLink.propTypes = {
+  Icon: PropTypes.elementType.isRequired,
+  href: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  newTab: PropTypes.bool,
+};
+
+export default SocialLink;

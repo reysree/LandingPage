@@ -39,16 +39,18 @@ export default function Header() {
           </motion.div>
 
           <nav className="hidden md:flex space-x-8">
-            {["About", "Projects", "Experience", "Contact"].map((item) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                whileHover={{ y: -2 }}
-                className="transition-colors"
-              >
-                {item}
-              </motion.a>
-            ))}
+            {["About", "Projects", "Experience", "Contact", "Skills"].map(
+              (item) => (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  whileHover={{ y: -2 }}
+                  className="transition-colors"
+                >
+                  {item}
+                </motion.a>
+              )
+            )}
           </nav>
 
           <div className="flex items-center space-x-4">

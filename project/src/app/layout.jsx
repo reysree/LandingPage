@@ -1,8 +1,8 @@
 import "../index.css";
 
 export const metadata = {
-  title: "My App",
-  description: "My App is a...",
+  title: "My PortFoilo",
+  description: "My PortFolio",
 };
 
 export default function RootLayout({ children }) {

@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   Github,
@@ -11,7 +10,6 @@ import {
   GraduationCap,
   FileText,
 } from "lucide-react";
-// import profileImage from "../../public/sreeram_github.jpg";
 
 function App() {
   return (
@@ -27,7 +25,15 @@ function App() {
             ></motion.div>
 
             <nav className="hidden md:flex space-x-8">
-              {["About", "Projects", "Experience", "Contact"].map((item) => (
+              {[
+                "About",
+                "Projects",
+                "Experience",
+                "Skills",
+                "Certifications",
+                "Contact",
+                "Resume",
+              ].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -263,9 +269,24 @@ function App() {
           <div className="space-y-8">
             {[
               {
-                title: "Student Assistant(Software Developer)",
+                title: "Software Developer",
+                company: "American Initiative Technology Inc.",
+                period: "Jan 2025 - Present",
+                description: [
+                  "Implementing a JIRA system using React.js, Django, and Tailwind CSS to streamline task management, issue tracking, and team collaboration.",
+                ],
+                skills: [
+                  "React.js",
+                  "Django",
+                  "Git",
+                  "Postgre SQL",
+                  "Tailwind CSS",
+                ],
+              },
+              {
+                title: "Software Developer(Assistantship)",
                 company: "George Mason University",
-                period: "2023 - Present",
+                period: "Aug 2023 - Dec 2024",
                 description: [
                   "Architected a prototype for an AI-powered student companion app using Spring Boot, React.js, and MySQL for efficient data management, assisting 200+ students with essential daily activities on campus.",
                   "Integrated OpenAI and LangChain to process web-scraped data, delivering personalized suggestions with 90% relevance accuracy and improving app adoption rate by 20%.",
@@ -282,7 +303,7 @@ function App() {
               {
                 title: "Software Engineer Fellow",
                 company: "Headstarter AI",
-                period: "2024 - 2024",
+                period: "Feb 2023 - Jul 2024",
                 description: [
                   "Built 5+ AI apps and APIs using NextJS, OpenAI, PineCone, StripeAI with 98% accuracy as seen by 1000 users.",
                   "Developed projects from design to deployment, leading 4+ engineering fellows using MVC design patterns.",
@@ -299,7 +320,7 @@ function App() {
               {
                 title: "Full Stack Developer",
                 company: "Digital Bank of Singapore(Tech India)",
-                period: "2020 - 2022",
+                period: "Oct 2020 - Dec 2022",
                 description: [
                   "Adhered to Agile principles by actively collaborating within a software development team, engaging with clients and cross-functional teams to deliver successful outcomes and meet project objectives.",
                   "Engineered and led the deployment of the Cross-Border Payments Regulation application using Angular, Spring Boot, and Spring Security, ensuring robust transaction security and seamless processing of 10 million international transactions annually.",
@@ -314,11 +335,22 @@ function App() {
                   "Spring Security",
                 ],
               },
+              {
+                title: "Software Developer Intern",
+                company: "ADTRAN Networks India Private Limited",
+                period: "Jan 2020 - Sept 2020",
+                description: [
+                  "Developed and tested network automation scripts using Python and Scala, improving system efficiency and reliability.",
+                  "Monitored network performance by analyzing server logs and utilizing Salesforce dashboards to track key metrics.",
+                ],
+                skills: ["Python", "Scala", "Linux", "Salesforce"],
+              },
             ].map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
                 viewport={{ once: true }}
                 className="bg-white p-6 rounded-lg shadow-lg border border-gray-100"
               >
@@ -345,6 +377,160 @@ function App() {
                     </span>
                   ))}
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="py-20 bg-gray-50" id="skills">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Technical Skills
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                category: "Programming Languages",
+                skills: [
+                  { name: "Java", level: 90 },
+                  { name: "Python", level: 70 },
+                  { name: "JavaScript/TypeScript", level: 70 },
+                  { name: "SQL", level: 85 },
+                ],
+              },
+              {
+                category: "Frontend Development",
+                skills: [
+                  { name: "React.js", level: 80 },
+                  { name: "Next.js", level: 80 },
+                  { name: "Angular", level: 60 },
+                  { name: "Tailwind CSS", level: 60 },
+                  { name: "Material UI", level: 60 },
+                ],
+              },
+              {
+                category: "Backend Development",
+                skills: [
+                  { name: "Spring Boot", level: 90 },
+                  { name: "Node.js", level: 60 },
+                  { name: "REST APIs", level: 90 },
+                ],
+              },
+              {
+                category: "AI & Machine Learning",
+                skills: [
+                  { name: "OpenAI", level: 85 },
+                  { name: "LangChain", level: 60 },
+                  { name: "TensorFlow", level: 70 },
+                  { name: "Scikit-learn", level: 80 },
+                  { name: "LLMs", level: 80 },
+                ],
+              },
+              {
+                category: "Cloud & DevOps",
+                skills: [
+                  { name: "AWS", level: 85 },
+                  { name: "Docker", level: 80 },
+                  { name: "Kubernetes", level: 75 },
+                  { name: "CI/CD", level: 80 },
+                ],
+              },
+              {
+                category: "Databases",
+                skills: [
+                  { name: "MySQL", level: 90 },
+                  { name: "PostgreSQL", level: 80 },
+                  { name: "MongoDB", level: 70 },
+                  { name: "Redis", level: 70 },
+                  { name: "FireBase", level: 80 },
+                ],
+              },
+            ].map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -5 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-lg shadow-lg"
+              >
+                <h3 className="text-xl font-bold mb-4 text-gray-900">
+                  {category.category}
+                </h3>
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-700">{skill.name}</span>
+                        <span className="text-sm text-gray-500">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full bg-primary rounded-full"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white" id="certifications">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Certifications
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "AWS Certified Associate Developer",
+                link: "https://www.credly.com/badges/b718ea7d-5b1b-4370-af8c-d837780e0dcb/public_url",
+                img: "AWS-badge.png",
+              },
+              {
+                title: "Oracle Certified JAVA SE 8 Associate",
+                link: "https://www.credly.com/badges/91411d1d-c3a6-4238-9c2d-e68e3565b5f0/public_url",
+                img: "Oracle_Associates_Badge.png",
+              },
+              {
+                title: "CodePath Advanced Technical Interview Prep",
+                link: "https://www.credly.com/badges/91411d1d-c3a6-4238-9c2d-e68e3565b5f0/public_url",
+                img: "CodePath.png",
+              },
+              // Add more certifications as needed
+            ].map((cert, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5 }}
+                className="flex-col p-6 bg-white rounded-lg shadow-lg border border-gray-100"
+              >
+                <img
+                  src={cert.img}
+                  alt={cert.title}
+                  className="flex justify-center object-cover mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                  {cert.title}
+                </h3>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-primary/80 transition-colors"
+                >
+                  View Certification
+                </a>
               </motion.div>
             ))}
           </div>
