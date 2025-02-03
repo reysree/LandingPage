@@ -1,77 +1,56 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import profileImage from "../assets/sreeram_github.jpg";
+"use client";
 
-export default function Hero() {
+import { motion } from "framer-motion";
+import { Parallax } from "react-scroll-parallax";
+
+const Hero = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen flex items-center justify-center bg-gradient-radial"
+      className="min-h-screen flex items-center bg-gradient-to-b from-blue-50 to-white pt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="relative inline-block"
-          >
-            <div className="w-32 h-32 absolute -inset-1 rounded-full blur-md" />
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="relative w-32 h-32 rounded-full object-cover border-2"
-            />
-          </motion.div>
-
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="mt-6 text-4xl font-bold sm:text-6xl"
-          >
-            Sreeram Bangaru
-          </motion.h1>
-
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-4 text-xl max-w-2xl mx-auto"
-          >
-            Full Stack Developer & UI/UX Enthusiast
-          </motion.p>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-8 flex justify-center gap-4"
-          >
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact"
-              className="inline-flex items-center px-6 py-3 font-medium transition-colors transform skew-x-12"
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left side - Image wrapped with a Parallax effect */}
+          <Parallax translateY={[-20, 20]}>
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="relative aspect-square max-w-lg mx-auto"
             >
-              <span className="transform -skew-x-12">
-                Get in touch
-                <ArrowRight className="ml-2 h-4 w-4 inline" />
-              </span>
-            </motion.a>
+              <div className="absolute inset-0 bg-primary/10 rounded-3xl rotate-6"></div>
+              <img
+                src="/sreeram_github.jpg"
+                alt="Profile"
+                className="relative w-75 h-75 object-cover border-2"
+              />
+            </motion.div>
+          </Parallax>
 
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#projects"
-              className="inline-flex items-center px-6 py-3 bg-transparent font-medium border transition-colors transform skew-x-12"
+          {/* Right side - Content */}
+          <div className="text-left">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              className="space-y-6"
             >
-              <span className="transform -skew-x-12">View Projects</span>
-            </motion.a>
-          </motion.div>
+              <h1 className="text-5xl font-bold text-gray-900 md:text-6xl lg:text-7xl whitespace-nowrap">
+                Sreeram Bangaru
+              </h1>
+              <p className="text-xl text-gray-600 max-w-2xl">
+                Full-stack developer with enthusiasm for AI, combining expertise
+                in Java, Python, JavaScript and cloud computing to architect
+                innovative solutions. Passionate about leveraging GenAI to
+                revolutionize processes and create transformative AI-driven
+                software products.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.section>
   );
-}
+};
+
+export default Hero;

@@ -1,92 +1,63 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Building2, Briefcase, GraduationCap } from "lucide-react";
+import Image from "next/image";
 
-export default function Certifications() {
-  const certifications = [
-    {
-      title: "AWS Certified Associate Developer",
-      icon: Building2,
-    },
-    {
-      title: "Oracle Certified JAVA SE8 Associate",
-      icon: Briefcase,
-    },
-    {
-      title: "Software Engineering Degree",
-      company: "Tech University",
-      period: "2015 - 2019",
-      description:
-        "Bachelor's in Computer Science with focus on Software Engineering. Dean's List all semesters.",
-      icon: GraduationCap,
-      skills: ["Algorithms", "System Design", "AI/ML"],
-    },
-  ];
-
+const Certifications = ({ props }) => {
   return (
-    <section className="py-20 bg-valorant-black" id="experience">
+    <section className="py-20 bg-white" id={props.id}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-16">Experience</h2>
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5" />
-
-          {/* Experience items */}
-          <div className="space-y-12">
-            {certifications.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+          Certifications
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: "AWS Certified Associate Developer",
+              link: "https://www.credly.com/badges/b718ea7d-5b1b-4370-af8c-d837780e0dcb/public_url",
+              img: "/AWS-badge.png",
+            },
+            {
+              title: "Oracle Certified JAVA SE 8 Associate",
+              link: "https://www.credly.com/badges/91411d1d-c3a6-4238-9c2d-e68e3565b5f0/public_url",
+              img: "/Oracle_Associates_Badge.png",
+            },
+            {
+              title: "CodePath Advanced Technical Interview Prep",
+              link: "https://www.credly.com/badges/91411d1d-c3a6-4238-9c2d-e68e3565b5f0/public_url",
+              img: "/CodePath.png",
+            },
+          ].map((cert, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -5 }}
+              className="flex-col p-6 bg-white rounded-lg shadow-lg border border-gray-100"
+            >
+              <Image
+                width={200}
+                height={200}
+                src={cert.img}
+                alt={cert.title}
+                className="w-50 h-50 flex justify-center object-cover mb-4"
+              />
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                {cert.title}
+              </h3>
+              <a
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center border">
-                    <exp.icon className="w-6 h-6" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div
-                  className={`relative ${
-                    index % 2 === 0 ? "pr-1/2 text-right" : "pl-1/2"
-                  } pb-12`}
-                >
-                  <div
-                    className={`inline-block p-6 rounded-none transform ${
-                      index % 2 === 0 ? "skew-x-12 mr-10" : "-skew-x-12 ml-10"
-                    }`}
-                  >
-                    <div
-                      className={`transform ${
-                        index % 2 === 0 ? "-skew-x-12" : "skew-x-12"
-                      }`}
-                    >
-                      <span className="text-sm font-medium">{exp.period}</span>
-                      <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                      <p className="font-medium">{exp.company}</p>
-                      <p className="mt-2">{exp.description}</p>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {exp.skills.map((skill, skillIndex) => (
-                          <span
-                            key={skillIndex}
-                            className="px-3 py-1 text-sm border"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                View Certification
+              </a>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Certifications;
