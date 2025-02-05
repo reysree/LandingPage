@@ -57,7 +57,7 @@ const Experience = ({ props }) => {
             },
             {
               title: "Full Stack Developer",
-              company: "Digital Bank of Singapore(Tech India)",
+              company: "Development Bank of Singapore(Tech India)",
               period: "Oct 2020 - Dec 2022",
               description: [
                 "Adhered to Agile principles by actively collaborating within a software development team, engaging with clients and cross-functional teams to deliver successful outcomes and meet project objectives.",

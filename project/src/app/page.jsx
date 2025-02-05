@@ -9,6 +9,8 @@ import Certifications from "../components/Certifications";
 import Contacts from "../components/Contacts";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import Chat from "../components/Chat";
+import { motion } from "framer-motion";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
 
         {/* Contact Section */}
         <Contacts props={{ id: "contact" }} />
+        {/* Chat Component */}
+        <Chat />
       </div>
     </ParallaxProvider>
   );
