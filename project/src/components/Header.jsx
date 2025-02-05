@@ -33,7 +33,7 @@ const Header = () => {
               </motion.a>
             ))}{" "}
             <motion.a
-              href="/Sreeram_Bangaru_resume_developer.pdf"
+              href="/Sreeram_Bangaru_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -2 }}
