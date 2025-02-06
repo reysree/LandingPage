@@ -69,7 +69,7 @@ const Projects = ({ props }) => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-blue-500"
                 >
                   View Project <ExternalLink className="ml-1 w-4 h-4" />
                 </a>

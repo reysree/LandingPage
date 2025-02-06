@@ -25,7 +25,7 @@ const Certifications = ({ props }) => {
             },
             {
               title: "CodePath Advanced Technical Interview Prep",
-              link: "https://www.credly.com/badges/91411d1d-c3a6-4238-9c2d-e68e3565b5f0/public_url",
+              link: "/CodePath_Certificate.pdf",
               img: "/CodePath.png",
             },
           ].map((cert, index) => (
@@ -48,7 +48,7 @@ const Certifications = ({ props }) => {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-primary hover:text-primary/80 transition-colors text-blue-500"
               >
                 View Certification
               </a>

@@ -1,7 +1,172 @@
 "use client";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
+import { Button } from "./ui/button";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@radix-ui/react-hover-card";
+import SkillCard from "./SkillCard";
+import { Card, CardContent, CardHeader } from "./ui/card";
+import { useState } from "react";
 
 const Skills = ({ props }) => {
+  const categories = [
+    {
+      category: "Programming Languages",
+      skills: [
+        {
+          name: "Java",
+          color: "bg-red-100",
+          concepts: [
+            "OOPS",
+            "Data Structures",
+            "Exception Handling",
+            "Functional Programming",
+          ],
+        },
+        {
+          name: "Python",
+          color: "bg-red-200",
+          concepts: [
+            "Object Oriented Programming",
+            "Data Structures",
+            "Pandas",
+            "Numpy",
+            "Scikit",
+          ],
+        },
+        {
+          name: "JavaScript/TypeScript",
+          color: "bg-red-300",
+          concepts: [
+            "Core Features",
+            "DOM & Events",
+            "Funtions and Scope",
+            "Asynchronous Javascript",
+            "ES6+",
+          ],
+        },
+        {
+          name: "SQL",
+          color: "bg-red-400",
+          concepts: [
+            "CRUD Operations",
+            "Joins",
+            "Aggregations and Functions",
+            "Stored Procedures",
+            "Triggers",
+          ],
+        },
+      ],
+    },
+    {
+      category: "Frontend Development",
+      skills: [
+        {
+          name: "React.js",
+          color: "bg-blue-50",
+          concepts: ["Hooks", "Routing", "Fetching third-party API"],
+        },
+        {
+          name: "Next.js",
+          color: "bg-blue-100",
+          concepts: [
+            "Server Side Rendering",
+            "Image Optimization",
+            "App Router",
+            "Static Site Generation",
+          ],
+        },
+        {
+          name: "Angular",
+          color: "bg-blue-200",
+          concepts: [
+            "LifeCycle Methods",
+            "Internationalization",
+            "Two-way Data Binding",
+          ],
+        },
+        {
+          name: "Tailwind CSS",
+          color: "bg-blue-300",
+          concepts: ["Layout", "Flex Box & Grid", "Sizing", "Background"],
+        },
+        {
+          name: "Material UI",
+          color: "bg-blue-400",
+          concepts: ["Components"],
+        },
+      ],
+    },
+    {
+      category: "Backend Development",
+      skills: [
+        {
+          name: "Spring Boot",
+          color: "bg-green-100",
+          concepts: ["IOC"],
+        },
+        { name: "Node.js", color: "bg-green-200", concepts: ["fetch"] },
+        {
+          name: "REST APIs",
+          color: "bg-green-300",
+          concepts: ["RESTful Services integration"],
+        },
+      ],
+    },
+    {
+      category: "AI & Machine Learning",
+      skills: [
+        {
+          name: "OpenAI",
+          color: "bg-yellow-50",
+          concepts: [
+            "Chat Completion",
+            "RAG integration",
+            "multi-model",
+            "Tool calls",
+          ],
+        },
+        { name: "LangChain", color: "bg-yellow-100", concepts: [] },
+        { name: "TensorFlow", color: "bg-yellow-200", concepts: [] },
+        { name: "Scikit-learn", color: "bg-yellow-300", concepts: [] },
+        { name: "LLMs", color: "bg-yellow-400", concepts: [] },
+      ],
+    },
+    {
+      category: "Cloud & DevOps",
+      skills: [
+        { name: "AWS", color: "bg-teal-100", concepts: [] },
+        { name: "Docker", color: "bg-teal-200", concepts: [] },
+        { name: "Kubernetes", color: "bg-teal-300", concepts: [] },
+        { name: "CI/CD", color: "bg-teal-400", concepts: [] },
+      ],
+    },
+    {
+      category: "Databases",
+      skills: [
+        { name: "MySQL", color: "bg-purple-50", concepts: [] },
+        { name: "PostgreSQL", color: "bg-purple-100", concepts: [] },
+        { name: "MongoDB", color: "bg-purple-200", concepts: [] },
+        { name: "Redis", color: "bg-purple-300", concepts: [] },
+        { name: "FireBase", color: "bg-purple-400", concepts: [] },
+      ],
+    },
+  ];
+  const [flippedStates, setFlippedStates] = useState(
+    Array(categories.length).fill(false)
+  );
+
+  const [currentSkill, setCurrentSkill] = useState({});
+
+  const handleFlip = (index, skill) => {
+    const updatedStates = [...flippedStates];
+    updatedStates[index] = !updatedStates[index]; // Toggle flip state for the specific card
+    setFlippedStates(updatedStates);
+    setCurrentSkill(skill); // Set the current skill for the back side
+  };
+
   return (
     <section className="py-20 bg-gray-50" id={props.id}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,96 +174,69 @@ const Skills = ({ props }) => {
           Technical Skills
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              category: "Programming Languages",
-              skills: [
-                { name: "Java", level: 90 },
-                { name: "Python", level: 70 },
-                { name: "JavaScript/TypeScript", level: 70 },
-                { name: "SQL", level: 85 },
-              ],
-            },
-            {
-              category: "Frontend Development",
-              skills: [
-                { name: "React.js", level: 80 },
-                { name: "Next.js", level: 80 },
-                { name: "Angular", level: 60 },
-                { name: "Tailwind CSS", level: 60 },
-                { name: "Material UI", level: 60 },
-              ],
-            },
-            {
-              category: "Backend Development",
-              skills: [
-                { name: "Spring Boot", level: 90 },
-                { name: "Node.js", level: 60 },
-                { name: "REST APIs", level: 90 },
-              ],
-            },
-            {
-              category: "AI & Machine Learning",
-              skills: [
-                { name: "OpenAI", level: 85 },
-                { name: "LangChain", level: 60 },
-                { name: "TensorFlow", level: 70 },
-                { name: "Scikit-learn", level: 80 },
-                { name: "LLMs", level: 80 },
-              ],
-            },
-            {
-              category: "Cloud & DevOps",
-              skills: [
-                { name: "AWS", level: 85 },
-                { name: "Docker", level: 80 },
-                { name: "Kubernetes", level: 75 },
-                { name: "CI/CD", level: 80 },
-              ],
-            },
-            {
-              category: "Databases",
-              skills: [
-                { name: "MySQL", level: 90 },
-                { name: "PostgreSQL", level: 80 },
-                { name: "MongoDB", level: 70 },
-                { name: "Redis", level: 70 },
-                { name: "FireBase", level: 80 },
-              ],
-            },
-          ].map((category, index) => (
+          {categories.map((category, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -5 }}
               viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-lg"
+              animate={flippedStates[index] ? { rotateY: 180 } : { rotateY: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+              className="relative w-full h-80 bg-slate-100 rounded-lg shadow-lg"
             >
-              <h3 className="text-xl font-bold mb-4 text-gray-900">
-                {category.category}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700">{skill.name}</span>
-                      <span className="text-sm text-gray-500">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="h-full bg-primary rounded-full"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {/* Front Card */}
+              <Card
+                className="absolute w-full h-full"
+                style={{ backfaceVisibility: "hidden" }}
+              >
+                <CardHeader>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900 flex justify-center">
+                    {category.category}
+                  </h3>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div key={skillIndex} whileHover={{ y: -4 }}>
+                      <Button
+                        className={`w-full ${skill.color} hover:${skill.color} text-black`}
+                        onClick={() => handleFlip(index, skill)}
+                      >
+                        {skill.name}
+                      </Button>
+                    </motion.div>
+                  ))}
+                </CardContent>
+              </Card>
+
+              {/* Back Card */}
+              <Card
+                style={{
+                  backfaceVisibility: "hidden",
+                  transform: "rotateY(180deg)",
+                }}
+                className="absolute w-full h-full flex flex-col justify-center bg-amber-400"
+                onClick={() => handleFlip(index, {})} // Flip back to front
+              >
+                <CardContent>
+                  <h3 className="text-lg font-bold mb-4 text-center">
+                    {currentSkill.name}
+                  </h3>
+                  <ul className="space-y-4">
+                    {currentSkill.concepts &&
+                      currentSkill.concepts.map((concept, conceptIndex) => (
+                        <li
+                          key={conceptIndex}
+                          className="text-gray-700 text-sm text-center"
+                        >
+                          {concept}
+                        </li>
+                      ))}
+                  </ul>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
