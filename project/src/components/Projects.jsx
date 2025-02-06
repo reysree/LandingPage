@@ -13,13 +13,13 @@ const Projects = ({ props }) => {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              title: "Beacon",
+              title: "AI Finance Manager",
               description:
                 "A student companion AI application built with React and SpringBoot",
               image:
                 "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500",
-              tags: ["SpringBoot", "React.js", "MySQL", "OpenAI"],
-              link: "#",
+              tags: ["Next.js", "React", "ShadCn", "GeminiAI"],
+              link: "https://github.com/reysree/finance",
             },
             {
               title: "Connect",
@@ -69,7 +69,7 @@ const Projects = ({ props }) => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors text-blue-500"
+                  className="inline-flex items-center hover:text-primary/80 transition-colors text-blue-500"
                 >
                   View Project <ExternalLink className="ml-1 w-4 h-4" />
                 </a>

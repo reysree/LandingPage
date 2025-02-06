@@ -48,7 +48,7 @@ const Certifications = ({ props }) => {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors text-blue-500"
+                className="hover:text-primary/80 transition-colors text-blue-500"
               >
                 View Certification
               </a>
