@@ -154,17 +154,19 @@ const Skills = ({ props }) => {
       ],
     },
   ];
-  const [flippedStates, setFlippedStates] = useState(
-    Array(categories.length).fill(false)
-  );
-
-  const [currentSkill, setCurrentSkill] = useState({});
+  const [flippedIndex, setFlippedIndex] = useState(null); // Track which card is flipped
+  const [currentSkill, setCurrentSkill] = useState({}); // Track the skill data of the flipped card
 
   const handleFlip = (index, skill) => {
-    const updatedStates = [...flippedStates];
-    updatedStates[index] = !updatedStates[index]; // Toggle flip state for the specific card
-    setFlippedStates(updatedStates);
-    setCurrentSkill(skill); // Set the current skill for the back side
+    if (flippedIndex === index) {
+      // If the clicked card is already flipped, close it
+      setFlippedIndex(null);
+      setCurrentSkill({});
+    } else {
+      // Flip the new card and set its skill data
+      setFlippedIndex(index);
+      setCurrentSkill(skill);
+    }
   };
 
   return (
@@ -180,7 +182,9 @@ const Skills = ({ props }) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              animate={flippedStates[index] ? { rotateY: 180 } : { rotateY: 0 }}
+              animate={
+                flippedIndex === index ? { rotateY: 180 } : { rotateY: 0 }
+              }
               transition={{ duration: 0.6, ease: "easeInOut" }}
               style={{
                 transformStyle: "preserve-3d",
@@ -218,14 +222,15 @@ const Skills = ({ props }) => {
                   transform: "rotateY(180deg)",
                 }}
                 className="absolute w-full h-full flex flex-col justify-center bg-amber-400"
-                onClick={() => handleFlip(index, {})} // Flip back to front
+                onClick={() => setFlippedIndex(null)} // Flip back to front
               >
                 <CardContent>
                   <h3 className="text-lg font-bold mb-4 text-center">
-                    {currentSkill.name}
+                    {flippedIndex === index && currentSkill.name}
                   </h3>
                   <ul className="space-y-4">
-                    {currentSkill.concepts &&
+                    {flippedIndex === index &&
+                      currentSkill.concepts &&
                       currentSkill.concepts.map((concept, conceptIndex) => (
                         <li
                           key={conceptIndex}
