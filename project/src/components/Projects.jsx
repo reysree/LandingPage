@@ -15,7 +15,7 @@ const Projects = ({ props }) => {
             {
               title: "AI Finance Manager",
               description:
-                "A student companion AI application built with React and SpringBoot",
+                "An AI finance application to track your finances in different accounts built using Next.js and Gemini AI",
               image:
                 "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500",
               tags: ["Next.js", "React", "ShadCn", "GeminiAI"],
