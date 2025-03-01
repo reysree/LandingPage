@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ReactMarkdown from "react-markdown";
 
 const Chat = () => {
   const initial_message =
@@ -98,7 +99,7 @@ const Chat = () => {
                 key={index}
                 className="bg-gray-200 text-black p-2 mb-2 rounded shadow-sm"
               >
-                {msg.content}
+                <ReactMarkdown>{msg.content}</ReactMarkdown>
               </div>
             ) : (
               <div
