@@ -17,7 +17,7 @@ const Skills = ({ props }) => {
       skills: [
         {
           name: "Java",
-          color: "bg-red-100",
+          color: "bg-red-400",
           concepts: [
             "OOPS",
             "Data Structures",
@@ -27,7 +27,7 @@ const Skills = ({ props }) => {
         },
         {
           name: "Python",
-          color: "bg-red-200",
+          color: "bg-red-400",
           concepts: [
             "Object Oriented Programming",
             "Data Structures",
@@ -38,7 +38,7 @@ const Skills = ({ props }) => {
         },
         {
           name: "JavaScript/TypeScript",
-          color: "bg-red-300",
+          color: "bg-red-400",
           concepts: [
             "Core Features",
             "DOM & Events",
@@ -65,12 +65,12 @@ const Skills = ({ props }) => {
       skills: [
         {
           name: "React.js",
-          color: "bg-blue-50",
+          color: "bg-blue-400",
           concepts: ["Hooks", "Routing", "Fetching third-party API"],
         },
         {
           name: "Next.js",
-          color: "bg-blue-100",
+          color: "bg-blue-400",
           concepts: [
             "Server Side Rendering",
             "Image Optimization",
@@ -80,7 +80,7 @@ const Skills = ({ props }) => {
         },
         {
           name: "Angular",
-          color: "bg-blue-200",
+          color: "bg-blue-400",
           concepts: [
             "LifeCycle Methods",
             "Internationalization",
@@ -89,11 +89,11 @@ const Skills = ({ props }) => {
         },
         {
           name: "Tailwind CSS",
-          color: "bg-blue-300",
+          color: "bg-blue-400",
           concepts: ["Layout", "Flex Box & Grid", "Sizing", "Background"],
         },
         {
-          name: "Material UI",
+          name: "Material UI / Shadcn",
           color: "bg-blue-400",
           concepts: ["Components"],
         },
@@ -104,13 +104,19 @@ const Skills = ({ props }) => {
       skills: [
         {
           name: "Spring Boot",
-          color: "bg-green-100",
-          concepts: ["IOC"],
+          color: "bg-green-400",
+          concepts: [
+            "IOC",
+            "Spring Security",
+            "Spring JPA",
+            "Spring AI",
+            "Spring Eureka Server",
+          ],
         },
-        { name: "Node.js", color: "bg-green-200", concepts: ["fetch"] },
+        { name: "Node.js", color: "bg-green-400", concepts: ["fetch"] },
         {
           name: "REST APIs",
-          color: "bg-green-300",
+          color: "bg-green-400",
           concepts: ["RESTful Services integration"],
         },
       ],
@@ -120,7 +126,7 @@ const Skills = ({ props }) => {
       skills: [
         {
           name: "OpenAI",
-          color: "bg-yellow-50",
+          color: "bg-yellow-400",
           concepts: [
             "Chat Completion",
             "RAG integration",
@@ -128,29 +134,98 @@ const Skills = ({ props }) => {
             "Tool calls",
           ],
         },
-        { name: "LangChain", color: "bg-yellow-100", concepts: [] },
-        { name: "TensorFlow", color: "bg-yellow-200", concepts: [] },
-        { name: "Scikit-learn", color: "bg-yellow-300", concepts: [] },
-        { name: "LLMs", color: "bg-yellow-400", concepts: [] },
+        {
+          name: "LangChain",
+          color: "bg-yellow-400",
+          concepts: [
+            "LLM Orchestration",
+            "Memory & Context Retention",
+            "Retrieval-Augmented Generation (RAG)",
+          ],
+        },
+        // { name: "TensorFlow", color: "bg-yellow-200", concepts: ["Keras",""] },
+        // { name: "Scikit-learn", color: "bg-yellow-300", concepts: [] },
+        {
+          name: "LLMs",
+          color: "bg-yellow-400",
+          concepts: [
+            "LLM APIs & Models",
+            "Frameworks & Libraries",
+            "Fine-Tuning & Optimization",
+          ],
+        },
       ],
     },
     {
       category: "Cloud & DevOps",
       skills: [
-        { name: "AWS", color: "bg-teal-100", concepts: [] },
-        { name: "Docker", color: "bg-teal-200", concepts: [] },
-        { name: "Kubernetes", color: "bg-teal-300", concepts: [] },
-        { name: "CI/CD", color: "bg-teal-400", concepts: [] },
+        {
+          name: "AWS",
+          color: "bg-teal-400",
+          concepts: ["IAM Roles", "EC2", "S3", "EKS", "ECR", "RDS"],
+        },
+        {
+          name: "Docker",
+          color: "bg-teal-400",
+          concepts: ["Docker File", "Docker Compose"],
+        },
+        {
+          name: "Kubernetes",
+          color: "bg-teal-400",
+          concepts: [
+            "Container Orchestration",
+            "Pods",
+            "Deployments",
+            "Services",
+          ],
+        },
+        {
+          name: "CI/CD",
+          color: "bg-teal-400",
+          concepts: ["Github Actions", "AWS CodePipeline"],
+        },
       ],
     },
     {
       category: "Databases",
       skills: [
-        { name: "MySQL", color: "bg-purple-50", concepts: [] },
-        { name: "PostgreSQL", color: "bg-purple-100", concepts: [] },
-        { name: "MongoDB", color: "bg-purple-200", concepts: [] },
-        { name: "Redis", color: "bg-purple-300", concepts: [] },
-        { name: "FireBase", color: "bg-purple-400", concepts: [] },
+        {
+          name: "MySQL",
+          color: "bg-purple-400",
+          concepts: [
+            "Normalization",
+            "Indexes & Optimization",
+            "Stored Procedures & Functions",
+          ],
+        },
+        {
+          name: "PostgreSQL",
+          color: "bg-purple-400",
+          concepts: [
+            "Normalization",
+            "JSONB / Full-Text Search",
+            "Transactions & Concurrency Control",
+          ],
+        },
+        {
+          name: "MongoDB",
+          color: "bg-purple-400",
+          concepts: [
+            "Collections & Documents",
+            "Query Optimization",
+            "Indexing Strategies",
+          ],
+        },
+        {
+          name: "Redis",
+          color: "bg-purple-400",
+          concepts: ["Redis Fundamentals", "Key-Value Caching"],
+        },
+        {
+          name: "FireBase",
+          color: "bg-purple-400",
+          concepts: ["FireStore", "Authentication"],
+        },
       ],
     },
   ];
