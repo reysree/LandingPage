@@ -26,12 +26,19 @@ const Header = () => {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(item.toLowerCase());
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 whileHover={{ y: -2 }}
                 className="text-gray-600 hover:text-primary transition-colors"
               >
                 {item}
               </motion.a>
-            ))}{" "}
+            ))}
             <motion.a
               href="/Sreeram_Bangaru_resume.pdf"
               target="_blank"
