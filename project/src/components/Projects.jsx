@@ -54,7 +54,7 @@ const Projects = ({ props }) => {
         </h2>
         <div>
           <Carousel className="w-full max-w-6xl mx-auto">
-            <CarouselContent className="flex" asChild>
+            <CarouselContent className="flex">
               {projects.map((project, index) => (
                 <CarouselItem key={index} className="basis-1/3 px-2">
                   <motion.div

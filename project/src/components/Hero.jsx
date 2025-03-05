@@ -17,7 +17,7 @@ const Hero = () => {
             >
               <div className="absolute inset-0 bg-primary/10 rounded-3xl rotate-6"></div>
               <motion.img
-                src="/sreeram_github.jpg"
+                src="/IMG_5943.jpg"
                 alt="Profile"
                 className="relative w-75 h-75 object-cover border-2"
                 animate={{ rotate: [-20, -10, 0], scale: [1.6, 1.5, 1] }}
