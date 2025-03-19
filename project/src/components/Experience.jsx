@@ -17,7 +17,8 @@ const Experience = ({ props }) => {
               company: "American Initiative Technology Inc.",
               period: "Jan 2025 - Present",
               description: [
-                "Implementing a JIRA system using React.js, Django, and Tailwind CSS to streamline task management, issue tracking, and team collaboration.",
+                "Implementing a JIRA system using React.js, SpringBoot, and Tailwind CSS to streamline task management, issue tracking, and team collaboration.",
+                "Designed and implemented microservices using Java, Spring Boot, and RESTful APIs.",
               ],
               skills: [
                 "React.js",
