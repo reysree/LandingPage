@@ -1,104 +1,180 @@
 import { NextResponse } from "next/server";
 import OPENAI from "openai";
-import { PineconeStore } from "@langchain/pinecone";
-import { OpenAIEmbeddings } from "@langchain/openai";
-import { Pinecone } from "@pinecone-database/pinecone";
-import { TextLoader } from "langchain/document_loaders/fs/text";
 
-const systemprompt = `Your Name is Cypher. You are an AI assistant representing Sreeram Bangaru. Your role is to answer questions about Sreeram's background, experiences, skills, and aspirations as accurately as possible. Use the following guidelines:
+// Sreeram Bangaru's complete information context
+const SREERAM_CONTEXT = `
 
-1. Provide information only based on the context given from Sreeram's Info Document.
-2. If asked about something not mentioned in the context, politely state that you don't have that information about Sreeram.
-3. Maintain a professional and friendly tone, similar to how Sreeram would present himself.
-4. Focus on Sreeram's academic background, projects, internships, extracurricular activities, and future goals as described in the document.
-5. If asked about opinions or preferences, base your responses on the interests and values Sreeram expresses in his statement.
-6. Do not invent or assume any information about Sreeram that is not explicitly stated in the provided context.
-7. Always use markdown formatting when answering complex questions to make things eaier for the user to read.
+Personal Overview
 
-Given the following context from Sreeram's Info document, please answer the user's question:
+Sreeram Bangaru is a highly motivated and skilled computer science
+professional with expertise in full-stack development and a passion for
+building innovative software solutions using AI. He is adept at leveraging cutting-
+edge technologies to create impactful applications, demonstrating a
+consistent track record of success in academic and professional
+environments.
 
-Context: {context}
+# Core Motivations and Values
 
-User Question: {question}
+ - Driven by a passion for developing innovative software solutions
+ - Committed to continuous learning and skill development in the ever-evolving field of technology
+ - Strong belief in collaborative teamwork and open communication
+ - Dedicated to creating user-friendly and impactful applications
+ - Ethical and responsible development practices
+ - Educational Journey
 
-Please provide a concise and helpful answer based on the given context and your general knowledge. Do not include any introductory phrases like "Based on the information provided" or "Sure, here's the answer". Start your response directly with the relevant information.`;
+#Educational Journey 
+## Graduate Studies
+
+ - Institution: George Mason University
+Degree: Master of Science in Computer Science
+Period: January 2023 - Present
+Relevant Coursework: User Interface Design, Object-Oriented Programming, Software Testing
+Undergraduate Studies
+
+Institution: Jawaharlal Nehru Technological University
+Degree: Bachelor of Technology in Computer Science Engineering
+Period: July 2016 - October 2020
+Relevant Coursework: Web Development, Data Structures, Database Management Systems
+Professional Experience
+
+Current Roles
+
+Software Developeer - George Mason University
+Period: August 2023 - Present
+Key Achievements:
+Architected a prototype for an AI-powered student companion app using Spring Boot, React.js, and MySQL
+Integrated OpenAI and LangChain for personalized suggestions
+Optimized SQL query performances by 70%
+Graduate Teaching Assistant - George Mason University
+Period: August 2023 - Present
+Achievements:
+Improved student comprehension of data mining algorithms by 20%
+Evaluated ethical AI implementation in student projects
+Facilitated understanding of complex AI/ML concepts
+Previous Experience
+
+Software Engineering Fellow - Headstarter AI
+Period: June 2024 - August 2024
+Achievements:
+Built 5+ AI apps and APIs using NextJS, OpenAI, Pine Cone, StripeAI
+Led engineering teams using MVC design patterns
+Mentored by Amazon, Bloomberg, and Capital One engineers
+Full Stack Developer - Digital Bank of Singapore (DBS Tech India)
+Period: October 2020 - December 2022
+Responsibilities:
+Adhered to Agile principles in a software development team
+Engineered a Cross-Border Payments Regulation application
+Enhanced database efficiency by 30% through ORM optimization
+Designed scalable microservices for system performance
+Used Spring Boot Batch for triggering jobs in AWS EKS
+Technical Expertise
+
+Programming Languages and Tools
+
+Primary Languages: Java, Python, JavaScript, TypeScript, SQL
+Web Technologies: HTML, CSS
+Databases: MySQL, MongoDB
+Cloud Platforms: AWS
+Tools: Git, Bitbucket, Linux, JIRA, Jenkins, Docker, Kubernetes, Postman, Tomcat
+Frameworks and Libraries
+
+Web Frameworks: Spring Boot, Angular, React.js, Tailwind, Material UI
+Data Management: Hibernate, NoSQL
+Other: REST APIs, Kafka, GraphQL
+Specialized Skills
+
+Full Stack Development
+Microservices Architecture
+CI/CD Pipelines
+Database Design and Management
+Cloud-Based Deployment
+Significant Projects
+
+AI and Machine Learning Projects
+
+Rate My Professor (2024)
+
+AI-powered web application using Pinecone and OpenAI
+Achieved 95% search accuracy
+Built with Next.js and Material-UI
+Connect (2023)
+
+Campus navigation web application with Google Translation
+Improved payment gateway efficiency by 22%
+Won first place in a university hackathon
+Learning Approach and Professional Development
+
+Self-Learning Methodology
+
+Continuous self-learning through online courses and documentation
+Active participation in hackathons and coding challenges
+Exploration of new technologies and frameworks
+Professional Growth Strategy
+
+Seeking challenging projects to expand skillset
+Collaboration with experienced professionals
+Staying updated with industry trends
+Future Goals and Aspirations
+
+Technical Goals
+
+Deepen expertise in AI and machine learning
+Explore cloud-native technologies and serverless computing
+Contribute to open-source projects
+Impact Goals
+
+Develop software solutions that address real-world problems
+Promote accessible and inclusive technology
+Make a positive impact through innovation
+Personal Qualities
+
+Strong problem-solving and analytical skills
+Adaptable and quick learner
+Team player with excellent communication
+Passionate about technology and its potential
+Community Involvement
+
+Active in online developer communities
+Volunteer work with local organizations
+Mentorship of aspiring developers
+`;
+
+const systemprompt = `Your name is Cypher, an AI assistant representing Sreeram Bangaru. 
+
+Your Role and Capabilities:
+- You can answer questions about Sreeram Bangaru's background, experience, skills, projects, and aspirations
+- You can respond to general greetings and introduce yourself
+- You maintain a professional yet friendly tone
+- You use markdown formatting for complex responses
+
+Interaction Guidelines:
+1. For greetings (hi, hello, how are you, etc.), respond naturally and warmly
+2. When asked about yourself, explain that you're Cypher, an AI assistant helping to share information about Sreeram Bangaru
+3. For questions about Sreeram, use ONLY the information provided in the context below
+4. For questions outside your role (weather, news, general knowledge unrelated to Sreeram, etc.), politely explain that your role is focused on providing information about Sreeram and you don't have access to that type of information
+5. If information about Sreeram is not in the context, say: "I don't have this information yet. For more details, you can connect with Sreeram directly at sreeram.bangaroo@gmail.com"
+6. Do not invent or assume information about Sreeram not explicitly stated below
+
+Here is all the information about Sreeram Bangaru:
+
+${SREERAM_CONTEXT}
+
+Now respond to the user's question naturally and appropriately based on the above guidelines.`;
+
 const openai = new OPENAI(process.env.OPENAI_API_KEY);
-const OPEN_AI_KEY = process.env.OPENAI_API_KEY;
-const PINECONE_API_KEY = process.env.PINECONE_API_KEY;
-const PINECONE_INDEX_NAME = process.env.PINECONE_INDEX_NAME;
-
-let vectorStore;
-let fullDocument;
-
-async function getVectorStore() {
-  if (vectorStore) return vectorStore;
-
-  console.log("Initializing vector store connection...");
-  const pc = new Pinecone({
-    apiKey: PINECONE_API_KEY,
-  });
-  const pineconeIndex = pc.index(PINECONE_INDEX_NAME);
-
-  const embeddings = new OpenAIEmbeddings({ openAIApiKey: OPEN_AI_KEY });
-  vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
-    pineconeIndex,
-    namespace: "production",
-  });
-  console.log("Vector store connection established.");
-
-  return vectorStore;
-}
 
 export async function POST(req) {
   try {
-    const body = await req.json(); // Parse the incoming request JSON
+    const body = await req.json();
     console.log("Received request:", body.messages[body.messages.length - 1]);
 
-    const lastMessage = body.messages[body.messages.length - 1];
-    if (!lastMessage || typeof lastMessage.content !== "string") {
-      throw new Error(
-        "Invalid format: last message is not a string or invalid content"
-      );
-    }
-    const userQuestion = lastMessage.content;
-
-    const vectorStore = await getVectorStore();
-    console.log("Performing similarity search...");
-    const relevantDocs = await vectorStore.similaritySearch(userQuestion, 3);
-    console.log("Relevant documents retrieved:", relevantDocs.length);
-    let context = relevantDocs.map((doc) => doc.pageContent).join("\n\n");
-    const systemPrompt = `${systemprompt
-      .replace("{context}", context)
-      .replace("{question}", userQuestion)}`;
-
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4o-mini-2024-07-18",
       messages: [{ role: "system", content: systemprompt }, ...body.messages],
-      //stream: true,
     });
-    // const stream = new ReadableStream({
-    //   async start(controller) {
-    //     const encoder = new TextEncoder();
-    //     try {
-    //       for await (const chunk of response) {
-    //         const content = chunk.choices[0]?.delta?.content;
-    //         if (content) {
-    //           const text = encoder.encode(content);
-    //           controller.enqueue(text);
-    //         }
-    //       }
-    //     } catch (err) {
-    //       console.error("Error in stream processing:", err);
-    //       controller.error(err);
-    //     } finally {
-    //       console.log("Stream completed.");
-    //       controller.close();
-    //     }
-    //   },
-    // });
+
     const aiMessage =
       response.choices?.[0]?.message?.content || "No response available";
-    //console.log("OpenAI Response:", aiMessage);
 
     return NextResponse.json({
       role: "assistant",

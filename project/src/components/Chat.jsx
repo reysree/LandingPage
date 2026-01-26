@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageCircle } from "lucide-react"; // Chat icon
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,16 @@ const Chat = () => {
   const [chatMessages, SetChatMessages] = useState([
     { role: "assistant", content: initial_message },
   ]);
+  const messagesEndRef = useRef(null);
+
+  // Auto-scroll to the latest message
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatMessages]);
 
   const handleChatBox = () => {
     SetChatOpen(!chatOpen);
@@ -110,6 +120,7 @@ const Chat = () => {
               </div>
             )
           )}
+          <div ref={messagesEndRef} />
         </div>
         <div className="p-4 border-t flex flex-row">
           <Input
