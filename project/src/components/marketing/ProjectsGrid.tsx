@@ -42,7 +42,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:items-stretch">
         {visible.map((project, i) => (
           <Reveal key={project.slug} delay={Math.min(i * 0.05, 0.3)} className="h-full min-h-0">
-            <ProjectCard project={project} featured={project.featured} />
+            <ProjectCard project={project} featured={false} />
           </Reveal>
         ))}
       </div>

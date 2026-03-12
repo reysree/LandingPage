@@ -20,6 +20,7 @@ export default function ProjectsPage() {
             eyebrow="Work"
             title="Projects"
             description="A selection of AI-enabled products, systems, and web applications built from architecture to deployment."
+            center
           />
         </Reveal>
 

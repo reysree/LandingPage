@@ -14,7 +14,7 @@ United States [cite: 15]
 
 ### Summary [cite: 16]
 I build software that turns complex ideas into products people actually use. [cite: 17] I'm a Software Engineer and AI/Full Stack Developer who enjoys building intelligent products end to end, from backend architecture and data layers to polished user experiences. [cite: 17]
-* **Key Achievement**: Built **Zahan.ai at Groqify** from scratch—an AI platform for enterprise training (AI/sales onboarding) featuring interactive exercises and real-time presenter support. [cite: 18, 19]
+* **Key Achievement**: Built **Zahan.ai at Groqify** from scratch, an AI platform for enterprise training (AI/sales onboarding) featuring interactive exercises and real-time presenter support. [cite: 18, 19]
 * **Impact**: Built AI workflows and agent orchestration that reduced development cycle time by **35%**, cut CRUD latency by **40%**, and lowered infrastructure costs by **30%** at Groqify. [cite: 21]
 * **Academic/Other**: Built an AI-powered student companion at George Mason University used by **200+ students**, improving SQL performance by **70%**. [cite: 22] At DBS, supported **10M+ cross-border transactions** annually with distributed microservices. [cite: 23]
 

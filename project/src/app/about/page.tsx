@@ -11,7 +11,7 @@ import { siteSettings } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Founding Engineer and AI/Full Stack Developer. Built Zahan.ai at Groqify, AI workflows cutting dev cycle by 35%, and systems supporting 10M+ transactions annually.",
+  description: "Founding Software Engineer and AI/Full Stack Developer. Built Zahan.ai at Groqify, AI workflows cutting dev cycle by 35%, and systems supporting 10M+ transactions annually.",
 };
 
 const skills = [
@@ -57,13 +57,13 @@ export default function AboutPage() {
               <Reveal delay={0.05}>
                 <div className="space-y-4 text-lg leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
                   <p>
-                    I'm Sreeram Bangaru, a Founding Engineer and AI/Full Stack Developer. I build
-                    software that turns complex ideas into products people actually use—from backend
+                    I'm Sreeram Bangaru, a Founding Software Engineer and AI/Full Stack Developer. I build
+                    software that turns complex ideas into products people actually use, from backend
                     architecture and data layers to polished user experiences. I've shipped production
                     software across fintech, higher education, and AI-native startups.
                   </p>
                   <p>
-                    I built Zahan.ai at Groqify from scratch—an AI platform for enterprise training
+                    I built Zahan.ai at Groqify from scratch, an AI platform for enterprise training
                     with interactive exercises and real-time presenter support. My AI workflows and
                     agent orchestration there reduced development cycle time by 35%, cut CRUD latency
                     by 40%, and lowered infrastructure costs by 30%. I hold an MS in Computer Science

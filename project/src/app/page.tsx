@@ -53,7 +53,7 @@ export default function HomePage() {
             {/* Left: text */}
             <div>
               <FadeIn delay={0.05}>
-                <p className="eyebrow mb-5">Founding Engineer · React, Next.js, Spring Boot, Java, Python, SQL</p>
+                <p className="eyebrow mb-5">Founding Software Engineer</p>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h1 className="display-title mb-6">{siteSettings.name}</h1>
@@ -142,12 +142,12 @@ export default function HomePage() {
               <h2 className="section-title mb-12">Engineering philosophy</h2>
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 gap-px" style={{ background: "var(--border-default)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px min-w-0" style={{ background: "var(--border-default)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
             {philosophy.map((item, i) => (
-              <Reveal key={item.label} delay={i * 0.07}>
-                <div className="p-10 min-h-[260px] bg-frosted flex flex-col justify-center" style={{ background: "var(--card-bg)" }}>
-                  <p className="eyebrow !text-2xl mb-4 whitespace-nowrap">{item.label}</p>
-                  <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+              <Reveal key={item.label} delay={i * 0.07} className="min-w-0">
+                <div className="p-6 sm:p-10 min-h-[260px] bg-frosted flex flex-col justify-center overflow-hidden" style={{ background: "var(--card-bg)" }}>
+                  <p className="eyebrow !text-2xl mb-4 break-words">{item.label}</p>
+                  <p className="text-base leading-relaxed break-words" style={{ color: "var(--text-secondary)" }}>
                     {item.text}
                   </p>
                 </div>
