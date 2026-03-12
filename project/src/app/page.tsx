@@ -6,7 +6,7 @@ import { FadeIn, Reveal } from "@/components/motion";
 import { ProjectCard } from "@/components/marketing/ProjectCard";
 import { TimelineItem } from "@/components/marketing/TimelineItem";
 import { LeetCodeStats } from "@/components/marketing/LeetCodeStats";
-import { GitHubStats } from "@/components/marketing/GitHubStats";
+import { GitHubStatsClient } from "@/components/marketing/GitHubStatsClient";
 import { ExperienceBox } from "@/components/marketing/ExperienceBox";
 import { ZahanFoundingCard } from "@/components/marketing/ZahanFoundingCard";
 import { HeroImage } from "@/components/marketing/HeroImage";
@@ -90,7 +90,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 sm:items-stretch">
             <ExperienceBox />
             <ZahanFoundingCard />
-            <GitHubStats />
+            <GitHubStatsClient />
             <LeetCodeStats />
           </div>
         </Container>

@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+// Allow longer timeout for external API (Vercel default is 10s)
+export const maxDuration = 30;
+
 const STATS_API = "https://leetcode-stats.tashif.codes";
 const BADGES_API = "https://leetcode-stats.tashif.codes";
 

@@ -15,7 +15,7 @@ export function HeroImage() {
       style={{ perspective: "1000px", border: "1px solid var(--border-default)" }}
     >
       <motion.div
-        className="w-full h-full"
+        className="relative w-full h-full"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         style={{ transformStyle: "preserve-3d" }}

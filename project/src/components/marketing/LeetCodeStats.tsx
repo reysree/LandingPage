@@ -7,6 +7,7 @@ import { LeetCodeIcon } from "@/components/icons/LeetCodeIcon";
 import { Reveal } from "@/components/motion";
 
 const LEETCODE_USERNAME = "reysree";
+const LEETCODE_API = "https://leetcode-stats.tashif.codes";
 
 interface LeetCodeData {
   status: string;
@@ -26,17 +27,27 @@ export function LeetCodeStats() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`/api/leetcode/${LEETCODE_USERNAME}`)
-      .then((res) => res.json())
-      .then((json) => {
-        if (json.status === "success") {
-          setData(json);
-        } else {
-          setError(json.error ?? "Failed to load");
+    const loadData = async () => {
+      // Try API route first (works on localhost), then external API (works when Vercel serverless is blocked)
+      const urls = [
+        `/api/leetcode/${LEETCODE_USERNAME}`,
+        `${LEETCODE_API}/${LEETCODE_USERNAME}`,
+      ];
+      for (const url of urls) {
+        try {
+          const res = await fetch(url);
+          const json = await res.json();
+          if (json.status === "success") {
+            setData(json);
+            return;
+          }
+        } catch {
+          continue;
         }
-      })
-      .catch(() => setError("Failed to load LeetCode data"))
-      .finally(() => setLoading(false));
+      }
+      setError("Failed to load LeetCode data");
+    };
+    loadData().finally(() => setLoading(false));
   }, []);
 
   if (loading) {
