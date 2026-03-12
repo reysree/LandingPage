@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   },
   description: siteSettings.tagline,
   metadataBase: new URL("https://sreerambangaru.dev"),
+  manifest: "/favicon_io/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",

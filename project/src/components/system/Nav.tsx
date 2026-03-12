@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { Github, Linkedin, Mail, Menu, X, Moon, Sun } from "lucide-react";
@@ -94,13 +95,21 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo / Name */}
+          {/* Logo */}
           <Link
             href="/"
-            className="font-mono text-sm font-semibold tracking-tight transition-opacity hover:opacity-70"
-            style={{ color: "var(--text-primary)" }}
+            className="flex items-center transition-opacity hover:opacity-80"
+            aria-label="Home - S.Bangaru"
           >
-            <span style={{ color: "var(--accent-primary)" }}>S.</span>BANGARU
+            <Image
+              src="/icon"
+              alt="S.Bangaru"
+              width={32}
+              height={32}
+              className="h-8 w-8 sm:h-9 sm:w-9 object-contain"
+              sizes="32px"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
