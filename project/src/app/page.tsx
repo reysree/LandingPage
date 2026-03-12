@@ -145,9 +145,9 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-px" style={{ background: "var(--border-default)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
             {philosophy.map((item, i) => (
               <Reveal key={item.label} delay={i * 0.07}>
-                <div className="p-7 bg-frosted" style={{ background: "var(--card-bg)" }}>
-                  <p className="eyebrow mb-3">{item.label}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                <div className="p-10 min-h-[260px] bg-frosted flex flex-col justify-center" style={{ background: "var(--card-bg)" }}>
+                  <p className="eyebrow !text-2xl mb-4 whitespace-nowrap">{item.label}</p>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                     {item.text}
                   </p>
                 </div>

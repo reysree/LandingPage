@@ -2,14 +2,17 @@ import type { Experience, Certification } from "@/types/content";
 
 export const experiences: Experience[] = [
   {
-    title: "Software Developer",
-    company: "American Initiative Technology Inc.",
+    title: "Founding Software Engineer",
+    company: "Groqify, Virginia",
     period: "Jan 2025 – Present",
     description: [
-      "Implementing a JIRA-like system using React.js, Spring Boot, and Tailwind CSS to streamline task management, issue tracking, and team collaboration.",
-      "Designed and implemented microservices using Java, Spring Boot, and RESTful APIs.",
+      "Architected a Next.js AI native web app for interactive, game-based training sessions and presenter coaching, improving live-session engagement and delivery quality.",
+      "Built GitHub Actions + LLM agent workflow (OpenAI/Codex, Claude, AutoGen) to triage issues, open PRs, run scans; cut cycle 35%.",
+      "Consolidated backend to Supabase (Postgres); optimized indexes, query patterns and used Realtime/WebSockets for low-latency interactions, cutting CRUD latency by 40% and reducing infrastructure costs by 30%.",
+      "Designed and implemented an LLM agent orchestration layer supporting tool invocation, planning, and multi-step reasoning using the Gemini API.",
+      "Developed Model Context Protocol (MCP) server infrastructure enabling OpenAI-based agents to generate, modify, and publish live training content.",
     ],
-    skills: ["React.js", "Django", "Git", "PostgreSQL", "Tailwind CSS"],
+    skills: ["Next.js", "Supabase", "PostgreSQL", "WebSockets", "Gemini", "MCP", "OpenAI", "Claude", "GitHub Actions"],
     current: true,
   },
   {

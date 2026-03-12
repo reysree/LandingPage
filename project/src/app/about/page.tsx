@@ -44,10 +44,10 @@ const skills = [
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-28">
+      <Section className="pt-28 pb-20">
         <Container>
-          <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-start">
-            <div>
+          <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+            <div className="min-w-0">
               <Reveal>
                 <PageHeader
                   eyebrow="The person behind the code"
@@ -87,7 +87,7 @@ export default function AboutPage() {
             {/* Profile image */}
             <Reveal delay={0.08} className="hidden lg:block">
               <div
-                className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden"
+                className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-[360px] lg:h-[450px] rounded-2xl overflow-hidden shrink-0"
                 style={{ border: "1px solid var(--border-default)" }}
               >
                 <Image
@@ -95,7 +95,7 @@ export default function AboutPage() {
                   alt="Sreeram Bangaru"
                   fill
                   className="object-cover rounded-2xl"
-                  sizes="(max-width: 1024px) 288px, 400px"
+                  sizes="(max-width: 1024px) 288px, 360px"
                 />
               </div>
             </Reveal>
