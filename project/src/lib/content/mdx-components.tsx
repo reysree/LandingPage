@@ -27,12 +27,31 @@ export const mdxComponents: MDXComponents = {
   ),
   pre: (props) => (
     <pre
-      className="p-4 rounded-xl overflow-x-auto text-xs mb-4 font-mono"
+      className="p-4 rounded-xl overflow-x-auto text-xs mb-4 font-mono max-w-full"
       style={{ background: "var(--bg-elevated)", color: "var(--text-secondary)", border: "1px solid var(--border-default)" }}
       {...props}
     />
   ),
   hr: () => <hr className="my-8" style={{ borderColor: "var(--border-default)" }} />,
+  table: (props) => (
+    <div className="overflow-x-auto -mx-4 sm:mx-0 my-6">
+      <table className="min-w-full border-collapse text-sm" style={{ borderColor: "var(--border-default)" }} {...props} />
+    </div>
+  ),
+  th: (props) => (
+    <th
+      className="px-4 py-2 text-left font-semibold border-b"
+      style={{ color: "var(--text-primary)", borderColor: "var(--border-default)" }}
+      {...props}
+    />
+  ),
+  td: (props) => (
+    <td
+      className="px-4 py-2 border-b"
+      style={{ color: "var(--text-secondary)", borderColor: "var(--border-default)" }}
+      {...props}
+    />
+  ),
   strong: (props) => (
     <strong className="font-semibold" style={{ color: "var(--text-primary)" }} {...props} />
   ),

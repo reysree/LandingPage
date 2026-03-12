@@ -13,7 +13,7 @@ export function Section({ children, className, id, surface }: SectionProps) {
     <section
       id={id}
       className={cn(
-        "py-16 lg:py-28",
+        "py-12 sm:py-16 lg:py-28",
         surface ? "bg-[var(--bg-surface)] bg-frosted" : "bg-transparent",
         className
       )}

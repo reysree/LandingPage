@@ -55,13 +55,13 @@ export function Chat() {
     <>
       {/* ── CTA: Cypher GIF - unchanged from original ── */}
       <motion.div
-        className="fixed bottom-0 right-0 z-[70]"
+        className="fixed bottom-0 right-0 z-[70] max-w-[50vw] sm:max-w-none"
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
         transition={{ duration: 5.5, ease: "linear" }}
       >
         <motion.div
-          className="absolute -top-12 right-10 text-white text-sm px-3 py-1.5 rounded-xl shadow-lg"
+          className="absolute -top-12 right-2 sm:right-10 text-white text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-xl shadow-lg max-w-[120px] sm:max-w-none"
           style={{ background: "var(--accent-primary)" }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function Chat() {
           width={200}
           height={200}
           onClick={() => setOpen((p) => !p)}
-          className="cursor-pointer"
+          className="cursor-pointer size-[min(160px,50vw)] sm:size-[200px] object-contain"
           priority={false}
           unoptimized
         />
@@ -85,9 +85,9 @@ export function Chat() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed bottom-0 right-4 z-[70] w-80 sm:w-96 rounded-t-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-0 right-2 left-2 sm:left-auto sm:right-4 z-[70] w-[min(100%,24rem)] sm:w-80 lg:w-96 rounded-t-2xl shadow-2xl flex flex-col overflow-hidden"
             style={{
-              height: "420px",
+              height: "min(420px, 85dvh)",
               background: "var(--bg-elevated)",
               border: "1px solid var(--border-strong)",
               borderBottom: "none",

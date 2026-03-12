@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <Section className="pt-28">
+    <Section className="pt-24 sm:pt-28">
       <Container>
         <Reveal>
           <PageHeader

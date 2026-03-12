@@ -13,9 +13,9 @@ export default function Footer() {
         borderTopColor: "var(--border-default)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+      <div className="mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <p className="text-sm break-words" style={{ color: "var(--text-muted)" }}>
             © {year}{" "}
             <span style={{ color: "var(--text-secondary)" }}>{siteSettings.name}</span>
             {" "}- Built with Next.js & Tailwind

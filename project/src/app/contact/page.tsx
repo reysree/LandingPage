@@ -35,7 +35,7 @@ const links = [
 
 export default function ContactPage() {
   return (
-    <Section className="pt-28 min-h-[70vh]">
+    <Section className="pt-24 sm:pt-28 min-h-[70vh]">
       <Container narrow>
         <Reveal>
           <PageHeader
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 href={href}
                 target={href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="flex items-center gap-5 p-5 rounded-xl border transition-all group"
+                className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-xl border transition-all group min-w-0"
                 style={{
                   background: "var(--card-bg)",
                   borderColor: "var(--card-border)",
@@ -64,9 +64,9 @@ export default function ContactPage() {
                 >
                   <Icon size={18} style={{ color: "var(--accent-primary)" }} />
                 </span>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <p className="eyebrow mb-0.5">{label}</p>
-                  <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                  <p className="text-sm font-medium break-words" style={{ color: "var(--text-primary)" }}>
                     {value}
                   </p>
                 </div>

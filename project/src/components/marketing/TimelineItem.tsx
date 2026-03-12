@@ -12,7 +12,7 @@ export function TimelineItem({ experience, index }: TimelineItemProps) {
   const isLeft = index % 2 === 0;
 
   const cardContent = (
-    <article className="card bg-frosted p-5 md:p-6">
+    <article className="card bg-frosted p-4 sm:p-5 md:p-6 min-w-0 overflow-hidden">
       <div className="flex flex-wrap items-center gap-2 mb-3">
         <span
           className="font-mono text-xs px-2.5 py-1 rounded-full border"

@@ -93,7 +93,7 @@ export default function Nav() {
         borderBottomColor: scrolled ? "var(--border-default)" : "transparent",
       }}
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl min-w-0 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
@@ -195,7 +195,7 @@ export default function Nav() {
               borderTopColor: "var(--border-default)",
             }}
           >
-            <nav className="flex flex-col px-5 py-4 gap-1" aria-label="Mobile navigation">
+            <nav className="flex flex-col px-4 py-4 gap-1" aria-label="Mobile navigation">
               {navLinks.map(({ href, label }) => {
                 const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
                 return (

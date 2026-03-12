@@ -41,7 +41,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   }
 
   return (
-    <Section className="pt-28">
+    <Section className="pt-24 sm:pt-28">
       <Container narrow>
         <Reveal>
           <Link
@@ -78,7 +78,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
 
             {/* Links */}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {project.link && (
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-ghost text-sm">
                   <Github size={15} /> GitHub
@@ -98,7 +98,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         {/* MDX content or fallback */}
         <Reveal delay={0.1}>
           <div
-            className="mt-10 prose prose-neutral max-w-none"
+            className="mt-10 prose prose-neutral max-w-none overflow-x-hidden [&_img]:max-w-full [&_pre]:max-w-full"
             style={{ color: "var(--text-secondary)" }}
           >
             {MDXContent ? (

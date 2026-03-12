@@ -44,7 +44,7 @@ const skills = [
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-28 pb-20">
+      <Section className="pt-24 sm:pt-28 pb-12 sm:pb-20">
         <Container>
           <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
             <div className="min-w-0">
@@ -117,7 +117,7 @@ export default function AboutPage() {
               <h2 className="section-title mb-10">Technical skills</h2>
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:items-stretch sm:grid-rows-3 lg:grid-rows-2 sm:min-h-[540px] lg:min-h-[440px]">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 sm:items-stretch sm:grid-rows-3 lg:grid-rows-2 min-w-0">
             {skills.map((group, i) => (
               <Reveal key={group.category} delay={i * 0.06} className="h-full min-h-0">
                 <div className="card h-full flex flex-col min-h-0">
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card h-full flex flex-col items-center gap-4 hover:no-underline min-h-[220px] text-center"
+                  className="card h-full flex flex-col items-center gap-4 hover:no-underline min-h-[200px] sm:min-h-[220px] text-center min-w-0"
                 >
                   <div
                     className="relative w-28 h-28 rounded-lg overflow-hidden shrink-0 flex items-center justify-center"

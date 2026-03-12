@@ -11,7 +11,7 @@ export function HeroImage() {
     <div
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
-      className="relative w-64 h-80 sm:w-72 sm:h-96 lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden cursor-pointer"
+      className="relative w-[min(14rem,100%)] h-72 sm:w-72 sm:h-96 lg:w-[400px] lg:h-[500px] rounded-2xl overflow-hidden cursor-pointer shrink-0"
       style={{ perspective: "1000px", border: "1px solid var(--border-default)" }}
     >
       <motion.div

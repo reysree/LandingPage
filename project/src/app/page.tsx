@@ -46,10 +46,10 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <Section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+      <Section className="relative min-h-[100dvh] sm:min-h-screen flex items-center pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
         <HeroSplineBackground />
         <Container>
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center min-w-0">
             {/* Left: text */}
             <div>
               <FadeIn delay={0.05}>
@@ -59,12 +59,12 @@ export default function HomePage() {
                 <h1 className="display-title mb-6">{siteSettings.name}</h1>
               </FadeIn>
               <FadeIn delay={0.18}>
-                <p className="text-xl leading-relaxed mb-8 max-w-lg" style={{ color: "var(--text-secondary)" }}>
+                <p className="text-base sm:text-xl leading-relaxed mb-6 sm:mb-8 max-w-lg" style={{ color: "var(--text-secondary)" }}>
                   {siteSettings.tagline}
                 </p>
               </FadeIn>
               <FadeIn delay={0.24}>
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <Link href="/projects" className="btn-primary">
                     View my work <ArrowRight size={16} />
                   </Link>
@@ -90,10 +90,10 @@ export default function HomePage() {
       </Section>
 
       {/* ── Credibility Strip ── */}
-      <section className="bg-frosted" style={{ backgroundColor: "var(--bg-surface)", borderTop: "1px solid var(--border-default)", borderBottom: "1px solid var(--border-default)" }}>
-        <Container className="py-8">
+      <section className="bg-frosted overflow-x-hidden" style={{ backgroundColor: "var(--bg-surface)", borderTop: "1px solid var(--border-default)", borderBottom: "1px solid var(--border-default)" }}>
+        <Container className="py-6 sm:py-8">
           <Reveal>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {stats.map((s) => (
                 <StatPill key={s.label} value={s.value} label={s.label} />
               ))}
@@ -106,9 +106,9 @@ export default function HomePage() {
       <Section id="projects">
         <Container>
           <Reveal>
-            <div className="relative text-center mb-12">
+            <div className="relative text-center mb-10 sm:mb-12">
               <p className="eyebrow mb-2">Selected work</p>
-              <h2 className="section-title">What I've built</h2>
+              <h2 className="section-title mb-2 sm:mb-0">What I've built</h2>
               <Link
                 href="/projects"
                 className="hidden sm:inline-flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-60"
@@ -118,7 +118,7 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 sm:items-stretch min-w-0">
             {featuredProjects.map((project, i) => (
               <Reveal key={project.slug} delay={i * 0.08} className="h-full min-h-0">
                 <ProjectCard project={project} featured={project.featured} priority={i === 0} />
@@ -145,7 +145,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px min-w-0" style={{ background: "var(--border-default)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
             {philosophy.map((item, i) => (
               <Reveal key={item.label} delay={i * 0.07} className="min-w-0">
-                <div className="p-6 sm:p-10 min-h-[260px] bg-frosted flex flex-col justify-center overflow-hidden" style={{ background: "var(--card-bg)" }}>
+                <div className="p-5 sm:p-10 min-h-[200px] sm:min-h-[260px] bg-frosted flex flex-col justify-center overflow-hidden" style={{ background: "var(--card-bg)" }}>
                   <p className="eyebrow !text-2xl mb-4 break-words">{item.label}</p>
                   <p className="text-base leading-relaxed break-words" style={{ color: "var(--text-secondary)" }}>
                     {item.text}

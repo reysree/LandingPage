@@ -13,7 +13,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, featured, priority }: ProjectCardProps) {
   return (
     <HoverLift className="h-full">
-      <article className="card h-full flex flex-col min-h-0">
+      <article className="card h-full flex flex-col min-h-0 min-w-0 overflow-hidden">
         {project.image && (
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-5 bg-[var(--bg-elevated)]">
             <Image
@@ -45,14 +45,14 @@ export function ProjectCard({ project, featured, priority }: ProjectCardProps) {
           </div>
 
           <h3
-            className="text-xl font-semibold mb-2 tracking-tight"
+            className="text-lg sm:text-xl font-semibold mb-2 tracking-tight break-words"
             style={{ color: "var(--text-primary)" }}
           >
             {project.title}
           </h3>
 
           <p
-            className="text-base leading-relaxed flex-1 mb-4"
+            className="text-sm sm:text-base leading-relaxed flex-1 mb-4 break-words"
             style={{ color: "var(--text-secondary)" }}
           >
             {project.summary}
