@@ -92,16 +92,21 @@ Significant Projects
 
 AI and Machine Learning Projects
 
+Zahan AI (2025)
+
+AI-powered platform at zahan.ai that transforms expert knowledge into interactive, live training sessions
+Built at Groqify with team from Kahoot, Microsoft, McKinsey, Ericsson
+SaaS for onboarding, sales enablement, compliance training, and skills workshops
 Rate My Professor (2024)
 
 AI-powered web application using Pinecone and OpenAI
 Achieved 95% search accuracy
 Built with Next.js and Material-UI
-Connect (2023)
+Code-Sus (2025)
 
-Campus navigation web application with Google Translation
-Improved payment gateway efficiency by 22%
-Won first place in a university hackathon
+Real-time social deduction game where 5 players collaborate in a shared Monaco Editor
+One hidden Impostor sabotages the codebase; Crewmates must identify who before tests pass
+Built with Next.js 15, Supabase, Monaco Editor, Framer Motion, Playwright, Vitest
 Learning Approach and Professional Development
 
 Self-Learning Methodology

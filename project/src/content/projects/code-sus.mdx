@@ -1,0 +1,60 @@
+## Core Concept
+
+**Code-Sus** is a high-performance, real-time social deduction game where 5 players collaborate in a shared IDE to solve coding challenges. However, one player is a hidden **Impostor** whose mission is to subtly sabotage the codebase and prevent it from passing test cases before the 10-minute timer expires.
+
+### Gameplay Mechanics
+
+- **Collaboration**: Players work together in a shared Monaco Editor.
+- **Deduction**: Crewmates must identify who is introducing bugs.
+- **Sabotage**: The Impostor has a specialized "Toolbox" to invert conditionals, delay execution, or hide the console.
+- **Emergency Meetings**: Global "Snooze" triggers lock the editor for 120-second voting and discussion rounds.
+
+<hr />
+
+## Tech Stack
+
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend** | Next.js 15+ (App Router), Tailwind CSS v4, Framer Motion, Lucide React |
+| **Editor** | Monaco Editor via `@monaco-editor/react` |
+| **Backend / Real-time** | Supabase (Auth, PostgreSQL, Real-time Presence, Edge Functions) |
+| **Execution** | Secure client-side Web Worker or Sandboxed Edge Function for code evaluation |
+| **Testing** | Playwright (E2E) and Vitest (Unit) |
+
+<hr />
+
+## Design System: "Cyber-Security Terminal"
+
+- **Typography**: JetBrains Mono for all UI elements
+- **Color Palette**:
+  - Surface-0: `#08090A` (Deepest Black)
+  - Surface-1: `#121417` (Component Backgrounds)
+  - Accent-Crew: `#00FF9C` (Matrix Green)
+  - Accent-Imp: `#FF4646` (Neon Red)
+  - Accent-Neutral: `#3B82F6` (Electric Blue)
+- **Aesthetic**: Strict technical/terminal feel with 4px border-radius and 1px solid borders (`#1E293B`)
+
+<hr />
+
+## Project Structure
+
+```
+/src
+  /app           # Next.js App Router (Layouts & Pages)
+  /components    # React Components
+    /ui          # Primitive components (Shadcn style)
+  /utils
+    /supabase    # DB Schema, RLS, and Client
+/tests
+  /e2e           # Playwright E2E flows
+/documents       # Technical specs & env setup
+```
+
+<hr />
+
+## Engineering Standards
+
+- **Database**: snake_case (Tables, Columns, Enums)
+- **TypeScript**: camelCase (Variables, Functions, Components)
+- **CSS**: kebab-case for classes; CSS variables for all design tokens
+- **Security**: Strict Row Level Security (RLS) to prevent role leakage. No client-side `isImpostor` flags.

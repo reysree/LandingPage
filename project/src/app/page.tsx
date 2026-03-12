@@ -17,7 +17,7 @@ const stats = [
   { value: "5+", label: "Years of\nprofessional experience" },
   { value: "10M+", label: "Transactions\nprocessed annually" },
   { value: "200+", label: "Students served\nvia AI apps" },
-  { value: "AWS", label: "Certified\nDeveloper" },
+  { value: "35%", label: "Dev cycle time\nreduced at Groqify" },
   { value: "Java", label: "Oracle\nCertified" },
 ];
 
@@ -53,7 +53,7 @@ export default function HomePage() {
             {/* Left: text */}
             <div>
               <FadeIn delay={0.05}>
-                <p className="eyebrow mb-5">Founding Software Engineer</p>
+                <p className="eyebrow mb-5">Founding Engineer · React, Next.js, Spring Boot, Java, Python, SQL</p>
               </FadeIn>
               <FadeIn delay={0.1}>
                 <h1 className="display-title mb-6">{siteSettings.name}</h1>
@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:items-stretch">
             {featuredProjects.map((project, i) => (
               <Reveal key={project.slug} delay={i * 0.08} className="h-full min-h-0">
-                <ProjectCard project={project} featured={project.featured} />
+                <ProjectCard project={project} featured={project.featured} priority={i === 0} />
               </Reveal>
             ))}
           </div>

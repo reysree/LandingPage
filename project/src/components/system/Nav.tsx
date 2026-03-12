@@ -99,11 +99,11 @@ export default function Nav() {
           <Link
             href="/"
             className="flex items-center transition-opacity hover:opacity-80"
-            aria-label="Home - S.Bangaru"
+            aria-label="Home - SB"
           >
             <Image
               src="/icon"
-              alt="S.Bangaru"
+              alt="SB"
               width={32}
               height={32}
               className="h-8 w-8 sm:h-9 sm:w-9 object-contain"

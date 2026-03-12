@@ -7,9 +7,10 @@ import type { Project } from "@/types/content";
 interface ProjectCardProps {
   project: Project;
   featured?: boolean;
+  priority?: boolean;
 }
 
-export function ProjectCard({ project, featured }: ProjectCardProps) {
+export function ProjectCard({ project, featured, priority }: ProjectCardProps) {
   return (
     <HoverLift className="h-full">
       <article className="card h-full flex flex-col min-h-0">
@@ -21,6 +22,7 @@ export function ProjectCard({ project, featured }: ProjectCardProps) {
               fill
               className="object-cover"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              priority={priority}
             />
             {featured && (
               <span

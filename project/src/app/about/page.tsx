@@ -11,7 +11,7 @@ import { siteSettings } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Founding Software Engineer with 5+ years building AI-enabled products and scalable systems across fintech, education, and startups.",
+  description: "Founding Engineer and AI/Full Stack Developer. Built Zahan.ai at Groqify, AI workflows cutting dev cycle by 35%, and systems supporting 10M+ transactions annually.",
 };
 
 const skills = [
@@ -57,14 +57,19 @@ export default function AboutPage() {
               <Reveal delay={0.05}>
                 <div className="space-y-4 text-lg leading-relaxed max-w-2xl" style={{ color: "var(--text-secondary)" }}>
                   <p>
-                    I'm Sreeram Bangaru, a Founding Software Engineer who builds AI-enabled products,
-                    scalable backend systems, and polished user interfaces. I've shipped production
+                    I'm Sreeram Bangaru, a Founding Engineer and AI/Full Stack Developer. I build
+                    software that turns complex ideas into products people actually use—from backend
+                    architecture and data layers to polished user experiences. I've shipped production
                     software across fintech, higher education, and AI-native startups.
                   </p>
                   <p>
-                    I hold an MS in Computer Science from George Mason University and have built
-                    everything from cross-border payment platforms processing 10M+ transactions
-                    annually to AI student companion apps serving 200+ users daily.
+                    I built Zahan.ai at Groqify from scratch—an AI platform for enterprise training
+                    with interactive exercises and real-time presenter support. My AI workflows and
+                    agent orchestration there reduced development cycle time by 35%, cut CRUD latency
+                    by 40%, and lowered infrastructure costs by 30%. I hold an MS in Computer Science
+                    from George Mason University, where I built an AI-powered student companion used by
+                    200+ students. At DBS Bank, I supported 10M+ cross-border transactions annually
+                    with distributed microservices.
                   </p>
                   <p>
                     I work across the full stack but think in systems. I care about the architecture
