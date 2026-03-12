@@ -5,21 +5,16 @@ import { Section } from "@/components/system/Section";
 import { FadeIn, Reveal } from "@/components/motion";
 import { ProjectCard } from "@/components/marketing/ProjectCard";
 import { TimelineItem } from "@/components/marketing/TimelineItem";
-import { StatPill } from "@/components/marketing/StatPill";
+import { LeetCodeStats } from "@/components/marketing/LeetCodeStats";
+import { GitHubStats } from "@/components/marketing/GitHubStats";
+import { ExperienceBox } from "@/components/marketing/ExperienceBox";
+import { ZahanFoundingCard } from "@/components/marketing/ZahanFoundingCard";
 import { HeroImage } from "@/components/marketing/HeroImage";
 import { projects } from "@/content/projects";
 import { experiences } from "@/content/experience";
 import { siteSettings } from "@/content/site";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
-
-const stats = [
-  { value: "5+", label: "Years of\nprofessional experience" },
-  { value: "10M+", label: "Transactions\nprocessed annually" },
-  { value: "200+", label: "Students served\nvia AI apps" },
-  { value: "35%", label: "Dev cycle time\nreduced at Groqify" },
-  { value: "Java", label: "Oracle\nCertified" },
-];
 
 const philosophy = [
   {
@@ -90,15 +85,14 @@ export default function HomePage() {
       </Section>
 
       {/* ── Credibility Strip ── */}
-      <section className="bg-frosted overflow-x-hidden" style={{ backgroundColor: "var(--bg-surface)", borderTop: "1px solid var(--border-default)", borderBottom: "1px solid var(--border-default)" }}>
-        <Container className="py-6 sm:py-8">
-          <Reveal>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-              {stats.map((s) => (
-                <StatPill key={s.label} value={s.value} label={s.label} />
-              ))}
-            </div>
-          </Reveal>
+      <section className="overflow-x-hidden py-12 sm:py-16 lg:py-28">
+        <Container>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 sm:items-stretch">
+            <ExperienceBox />
+            <ZahanFoundingCard />
+            <GitHubStats />
+            <LeetCodeStats />
+          </div>
         </Container>
       </section>
 

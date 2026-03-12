@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/system/PageHeader";
 import { Reveal } from "@/components/motion";
 import { experiences, certifications } from "@/content/experience";
 import { TimelineItem } from "@/components/marketing/TimelineItem";
+import { LeetCodeStats } from "@/components/marketing/LeetCodeStats";
 import { siteSettings } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -132,6 +133,24 @@ export default function AboutPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* LeetCode Stats */}
+      <Section>
+        <Container>
+          <Reveal>
+            <div className="text-center mb-10">
+              <p className="eyebrow mb-2">Problem Solving</p>
+              <h2 className="section-title mb-2">LeetCode Profile</h2>
+              <p className="text-base max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
+                Track my progress and stats on LeetCode.
+              </p>
+            </div>
+          </Reveal>
+          <div className="max-w-2xl mx-auto">
+            <LeetCodeStats />
           </div>
         </Container>
       </Section>
