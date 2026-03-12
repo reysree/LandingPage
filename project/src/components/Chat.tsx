@@ -77,6 +77,7 @@ export function Chat() {
           onClick={() => setOpen((p) => !p)}
           className="cursor-pointer"
           priority={false}
+          unoptimized
         />
       </motion.div>
 

@@ -106,21 +106,19 @@ export default function HomePage() {
       <Section id="projects">
         <Container>
           <Reveal>
-            <div className="flex items-end justify-between mb-12">
-              <div>
-                <p className="eyebrow mb-2">Selected work</p>
-                <h2 className="section-title">What I've built</h2>
-              </div>
+            <div className="relative text-center mb-12">
+              <p className="eyebrow mb-2">Selected work</p>
+              <h2 className="section-title">What I've built</h2>
               <Link
                 href="/projects"
-                className="hidden sm:flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-60"
+                className="hidden sm:inline-flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-60"
                 style={{ color: "var(--accent-primary)" }}
               >
                 All projects <ArrowRight size={14} />
               </Link>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:items-stretch">
             {featuredProjects.map((project, i) => (
               <Reveal key={project.slug} delay={i * 0.08} className="h-full min-h-0">
                 <ProjectCard project={project} featured={project.featured} />
@@ -139,8 +137,10 @@ export default function HomePage() {
       <Section surface id="philosophy">
         <Container>
           <Reveal>
-            <p className="eyebrow mb-2">How I work</p>
-            <h2 className="section-title mb-12">Engineering philosophy</h2>
+            <div className="text-center">
+              <p className="eyebrow mb-2">How I work</p>
+              <h2 className="section-title mb-12">Engineering philosophy</h2>
+            </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 gap-px" style={{ background: "var(--border-default)", border: "1px solid var(--border-default)", borderRadius: "var(--radius-xl)", overflow: "hidden" }}>
             {philosophy.map((item, i) => (
@@ -161,8 +161,10 @@ export default function HomePage() {
       <Section id="experience">
         <Container>
           <Reveal>
-            <p className="eyebrow mb-2">Career</p>
-            <h2 className="section-title mb-12">Experience</h2>
+            <div className="text-center">
+              <p className="eyebrow mb-2">Career</p>
+              <h2 className="section-title mb-12">Experience</h2>
+            </div>
           </Reveal>
           <div className="relative">
             <span

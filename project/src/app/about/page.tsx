@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/system/Container";
 import { Section } from "@/components/system/Section";
@@ -18,27 +17,27 @@ export const metadata: Metadata = {
 const skills = [
   {
     category: "Languages",
-    items: ["Java", "Python", "TypeScript / JavaScript", "SQL", "Scala"],
+    items: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "Scala"],
   },
   {
     category: "Frontend",
-    items: ["Next.js", "React.js", "Angular", "Tailwind CSS", "shadcn/ui"],
+    items: ["Next.js", "React.js", "Angular", "Tailwind CSS", "shadcn"],
   },
   {
     category: "Backend",
-    items: ["Spring Boot", "Node.js", "Django", "REST APIs", "Spring Security"],
+    items: ["Spring Boot", "Node.js", "Django", "REST APIs", "Spring Security", "Web Sockets", "Edge Functions"],
   },
   {
     category: "AI & ML",
-    items: ["OpenAI", "LangChain", "LLMs", "RAG", "Gemini AI"],
+    items: ["OpenAI", "LangChain", "LLMs", "RAG", "Gemini", "MCP"],
   },
   {
     category: "Cloud & DevOps",
-    items: ["AWS (EC2, S3, EKS, RDS)", "Docker", "Kubernetes", "CI/CD", "GitHub Actions"],
+    items: ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Vercel"],
   },
   {
     category: "Databases",
-    items: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Firebase"],
+    items: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Firebase", "Supabase"],
   },
 ];
 
@@ -108,25 +107,23 @@ export default function AboutPage() {
       <Section surface>
         <Container>
           <Reveal>
-            <p className="eyebrow mb-2">Capabilities</p>
-            <h2 className="section-title mb-10">Technical skills</h2>
+            <div className="text-center">
+              <p className="eyebrow mb-2">Capabilities</p>
+              <h2 className="section-title mb-10">Technical skills</h2>
+            </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:items-stretch sm:grid-rows-3 lg:grid-rows-2 sm:min-h-[540px] lg:min-h-[440px]">
             {skills.map((group, i) => (
-              <Reveal key={group.category} delay={i * 0.06}>
-                <div className="card">
-                  <p className="eyebrow mb-4">{group.category}</p>
-                  <ul className="space-y-1.5">
+              <Reveal key={group.category} delay={i * 0.06} className="h-full min-h-0">
+                <div className="card h-full flex flex-col min-h-0">
+                  <p className="eyebrow mb-4 shrink-0">{group.category}</p>
+                  <div className="flex flex-wrap gap-1.5 flex-1 content-start">
                     {group.items.map((skill) => (
-                      <li
-                        key={skill}
-                        className="text-base"
-                        style={{ color: "var(--text-secondary)" }}
-                      >
+                      <span key={skill} className="tag">
                         {skill}
-                      </li>
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -138,20 +135,22 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Reveal>
-            <p className="eyebrow mb-2">Credentials</p>
-            <h2 className="section-title mb-10">Certifications</h2>
+            <div className="text-center">
+              <p className="eyebrow mb-2">Credentials</p>
+              <h2 className="section-title mb-10">Certifications</h2>
+            </div>
           </Reveal>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-6 sm:items-stretch">
             {certifications.map((cert, i) => (
-              <Reveal key={cert.title} delay={i * 0.07}>
+              <Reveal key={cert.title} delay={i * 0.07} className="h-full min-h-0">
                 <a
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card flex flex-col items-start gap-4 hover:no-underline"
+                  className="card h-full flex flex-col items-center gap-4 hover:no-underline min-h-[220px] text-center"
                 >
                   <div
-                    className="relative w-20 h-20 rounded-lg overflow-hidden"
+                    className="relative w-28 h-28 rounded-lg overflow-hidden shrink-0 flex items-center justify-center"
                     style={{ background: "var(--bg-elevated)" }}
                   >
                     <Image
@@ -159,16 +158,16 @@ export default function AboutPage() {
                       alt={cert.title}
                       fill
                       className="object-contain p-2"
-                      sizes="80px"
+                      sizes="112px"
                     />
                   </div>
-                  <div>
+                  <div className="flex flex-col flex-1 min-h-0 w-full items-center text-center">
                     <p className="eyebrow mb-1">{cert.issuer}</p>
-                    <p className="text-base font-medium" style={{ color: "var(--text-primary)" }}>
+                    <p className="text-base font-medium flex-1" style={{ color: "var(--text-primary)" }}>
                       {cert.title}
                     </p>
                     <p
-                      className="text-sm mt-1 flex items-center gap-1"
+                      className="text-sm mt-1 flex items-center gap-1 shrink-0"
                       style={{ color: "var(--accent-primary)" }}
                     >
                       View credential <ExternalLink size={11} />
@@ -185,23 +184,41 @@ export default function AboutPage() {
       <Section surface>
         <Container narrow>
           <Reveal>
-            <p className="eyebrow mb-2">Academic background</p>
-            <h2 className="section-title mb-10">Education</h2>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <div className="card">
-              <p className="eyebrow mb-2">Aug 2023 – Dec 2024</p>
-              <h3 className="text-xl font-semibold tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
-                M.S. Computer Science
-              </h3>
-              <p className="text-base font-medium mb-3" style={{ color: "var(--accent-primary)" }}>
-                George Mason University, Fairfax, VA
-              </p>
-              <p className="text-base" style={{ color: "var(--text-secondary)" }}>
-                Focus: Software Engineering, AI systems, Distributed Computing
-              </p>
+            <div className="text-center">
+              <p className="eyebrow mb-2">Academic background</p>
+              <h2 className="section-title mb-10">Education</h2>
             </div>
           </Reveal>
+          <div className="space-y-6">
+            <Reveal delay={0.05}>
+              <div className="card">
+                <p className="eyebrow mb-2">Aug 2023 – Dec 2024</p>
+                <h3 className="text-xl font-semibold tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
+                  M.S. Computer Science
+                </h3>
+                <p className="text-base font-medium mb-3" style={{ color: "var(--accent-primary)" }}>
+                  George Mason University, Fairfax, VA, USA
+                </p>
+                <p className="text-base" style={{ color: "var(--text-secondary)" }}>
+                  Focus: Software Engineering, AI systems, Distributed Computing
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="card">
+                <p className="eyebrow mb-2">June 2016 – Aug 2020</p>
+                <h3 className="text-xl font-semibold tracking-tight mb-1" style={{ color: "var(--text-primary)" }}>
+                  B.Tech in Computer Science and Engineering
+                </h3>
+                <p className="text-base font-medium mb-3" style={{ color: "var(--accent-primary)" }}>
+                  JNTUH, Hyderabad, Telangana, India
+                </p>
+                <p className="text-base" style={{ color: "var(--text-secondary)" }}>
+                  Focus: Programming languages, Mathematics, Machine Learning
+                </p>
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </Section>
 
@@ -209,14 +226,9 @@ export default function AboutPage() {
       <Section>
         <Container>
           <Reveal>
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <p className="eyebrow mb-2">Career</p>
-                <h2 className="section-title">Experience</h2>
-              </div>
-              <Link href="/" className="text-base font-medium" style={{ color: "var(--accent-primary)" }}>
-                Full timeline ↑
-              </Link>
+            <div className="text-center mb-10">
+              <p className="eyebrow mb-2">Career</p>
+              <h2 className="section-title">Experience</h2>
             </div>
           </Reveal>
           <div className="relative">
