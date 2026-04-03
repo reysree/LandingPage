@@ -29,6 +29,21 @@ export const projects: Project[] = [
     publishedAt: "2025-03-01",
   },
   {
+    slug: "styleme",
+    title: "StyleMe",
+    summary:
+      "Cross-platform digital wardrobe app that turns clothing photos into structured closet inventory, then uses AI for outfit suggestions and styling guidance.",
+    description:
+      "StyleMe is a production-oriented digital wardrobe platform built with Expo, React Native, and Supabase. It helps users capture clothing, organize multiple closets, enrich items with AI-assisted analysis, and generate weather-aware outfits and chat-based styling support from their own wardrobe data.",
+    stack: ["Expo", "React Native", "Supabase", "TanStack Query", "Jest"],
+    tags: ["AI", "Mobile", "Consumer", "Fashion Tech"],
+    link: "https://github.com/reysree/StyleMe",
+    liveUrl: "https://style-me-beta.vercel.app/",
+    image: "/StyleMe.png",
+    featured: false,
+    publishedAt: "2026-04-03",
+  },
+  {
     slug: "sql-chatbot",
     title: "SQL Chatbot",
     summary: "Text-to-SQL chatbot that queries live databases and displays structured results.",

@@ -1,0 +1,166 @@
+## Overview
+
+**StyleMe** is a cross-platform digital wardrobe application built with Expo, React Native, and Supabase. The product helps users convert clothing into structured wardrobe data, organize items across closets, enrich them with AI-assisted analysis, and turn that data into practical outcomes such as weather-aware outfit suggestions, saved favorites, and chat-based styling guidance.
+
+Instead of treating a wardrobe as a loose collection of photos or memory, StyleMe treats it as a managed inventory system. That framing makes the closet easier to search, maintain, and actually use in day-to-day decision making.
+
+<hr />
+
+## What The App Does
+
+StyleMe currently supports a complete flow across:
+
+- Secure authentication with email/password and Google sign-in
+- Multi-closet setup and closet switching
+- Photo-based item capture and upload
+- AI-assisted clothing analysis and structuring
+- Closet browsing, editing, favorites, and laundry status
+- Weather-aware outfit suggestion generation
+- Chat-based styling help grounded in the user's wardrobe
+- Saved outfits, profile basics, and wardrobe summary statistics
+
+<hr />
+
+## Who It Serves
+
+StyleMe is intended for users who want a more structured and useful relationship with their wardrobe:
+
+- People who want to reduce daily outfit decision fatigue
+- Users who want better visibility into what they already own
+- Anyone looking for styling help based on their actual closet rather than generic catalog recommendations
+- Product and engineering teams building a scalable foundation for future wardrobe intelligence features
+
+<hr />
+
+## Value Proposition
+
+StyleMe creates value in three important ways:
+
+1. It reduces wardrobe organization friction by turning clothing photos into structured, usable inventory.
+2. It improves day-to-day decision support with contextual outfit suggestions and conversational guidance.
+3. It establishes a backend and product architecture that can grow into deeper personalization, analytics, and recommendation workflows.
+
+<hr />
+
+## Architecture Summary
+
+StyleMe follows a client-plus-backend architecture designed for production-oriented iteration:
+
+| Layer | Responsibility |
+| --- | --- |
+| `app/` | Expo Router screens and navigation structure |
+| `src/` | Shared hooks, utilities, and design system primitives |
+| `supabase/` | Database SQL, row-level security policies, storage policies, and Edge Functions |
+| Client state | TanStack Query for server-state synchronization |
+| Backend platform | Supabase Auth, database, storage, and AI-oriented server execution |
+
+This architecture supports core wardrobe management today while leaving room for more advanced recommendation and personalization systems over time.
+
+<hr />
+
+## Core Capabilities
+
+### Identity And Access
+
+- Supabase Auth for sign-in, sign-up, password recovery, and OAuth handling
+- Session persistence across supported platforms
+
+### Closet Management
+
+- Create, switch, and manage multiple closets
+- Browse wardrobe items and update their metadata in-app
+- Favorite items and track laundry status
+
+### AI-Assisted Workflows
+
+- Analyze uploaded clothing photos through backend AI workflows
+- Generate outfit ideas from the user's available closet items
+- Provide chat-based wardrobe and styling assistance
+
+### Personalization
+
+- Weather-aware home experience
+- Saved outfits and favorites for repeat use
+- Profile basics and wardrobe summary statistics
+
+<hr />
+
+## Technology Stack
+
+- Expo
+- React Native
+- Expo Router
+- Supabase
+- TanStack Query
+- React Native Reanimated
+- Jest
+- Playwright
+
+<hr />
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js and npm
+- A Supabase project
+- OAuth configuration if Google sign-in is enabled
+
+### Installation
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+```bash
+EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
+EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
+EXPO_PUBLIC_APP_URL=http://localhost:8081
+```
+
+`EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are required by the client application. `EXPO_PUBLIC_APP_URL` is used for OAuth redirect handling and should match the configured redirect URLs in Supabase Auth and Google OAuth.
+
+### Run The Application
+
+```bash
+npm start
+```
+
+Platform-specific commands:
+
+- `npm run android`
+- `npm run ios`
+- `npm run web`
+
+Common development commands:
+
+- `npm test`
+- `npm run test:unit`
+- `npm run test:integration`
+- `npm run test:e2e`
+- `npm run test:e2e:ui`
+- `npm run lint`
+
+<hr />
+
+## Backend And Data
+
+The Supabase workspace in `supabase/` includes:
+
+- Database schema definitions
+- Row-level security policies
+- Triggers and stored functions
+- Storage policies
+- Edge Functions for wardrobe, outfit, and AI-assisted workflows
+
+<hr />
+
+## Current Scope
+
+The repository already includes the main wardrobe management, weather, AI-assisted item analysis, outfit suggestion, and chat experiences. Profile and preference areas are still expanding, with room for future work in deeper personalization, analytics, travel-oriented assistance, and other advanced styling workflows.
+
+## License
+
+MIT

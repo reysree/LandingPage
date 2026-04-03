@@ -12,12 +12,12 @@ export const mdxComponents: MDXComponents = {
     <h3 className="text-base font-semibold mt-6 mb-2" style={{ color: "var(--text-primary)" }} {...props} />
   ),
   p: (props) => (
-    <p className="leading-relaxed mb-4 text-sm" style={{ color: "var(--text-secondary)" }} {...props} />
+    <p className="leading-relaxed mb-4 text-lg" style={{ color: "var(--text-secondary)" }} {...props} />
   ),
   ul: (props) => (
     <ul className="space-y-2 mb-4 pl-5 list-disc" style={{ color: "var(--text-secondary)" }} {...props} />
   ),
-  li: (props) => <li className="text-sm leading-relaxed" {...props} />,
+  li: (props) => <li className="text-lg leading-relaxed" {...props} />,
   code: (props) => (
     <code
       className="font-mono text-xs px-1.5 py-0.5 rounded"
