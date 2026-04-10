@@ -8,6 +8,7 @@ export const siteSettings: SiteSettings = {
   email: "sreeram.bangaroo@gmail.com",
   github: "https://github.com/reysree",
   linkedin: "https://www.linkedin.com/in/sreerambangaru/",
+  x: "https://x.com/SreeramBangaru",
   leetcode: "https://leetcode.com/u/reysree/",
   resumePdf: "/Sreeram_Bangaru_resume.pdf",
   gaId: "G-P5X8B2GMKP",

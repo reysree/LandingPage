@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
+import { XIcon } from "@/components/icons/XIcon";
 import { Container } from "@/components/system/Container";
 import { Section } from "@/components/system/Section";
 import { PageHeader } from "@/components/system/PageHeader";
@@ -30,6 +31,12 @@ const links = [
     value: "sreerambangaru",
     href: siteSettings.linkedin,
     icon: Linkedin,
+  },
+  {
+    label: "X",
+    value: "@SreeramBangaru",
+    href: siteSettings.x,
+    icon: XIcon,
   },
 ];
 

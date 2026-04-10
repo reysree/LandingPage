@@ -4,11 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import { Github, Linkedin, Mail, Menu, X, Moon, Sun } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X as CloseIcon, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { siteSettings } from "@/content/site";
 import { LeetCodeIcon } from "@/components/icons/LeetCodeIcon";
+import { XIcon } from "@/components/icons/XIcon";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,6 +21,7 @@ const navLinks = [
 const socialLinks = [
   { href: siteSettings.github, icon: Github, label: "GitHub" },
   { href: siteSettings.linkedin, icon: Linkedin, label: "LinkedIn" },
+  { href: siteSettings.x, icon: XIcon, label: "X" },
   { href: `mailto:${siteSettings.email}`, icon: Mail, label: "Email" },
   { href: siteSettings.leetcode, icon: LeetCodeIcon, label: "LeetCode" },
 ];
@@ -175,7 +177,7 @@ export default function Nav() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileOpen ? <CloseIcon size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 
 import { Github, Linkedin, Mail } from "lucide-react";
 import { siteSettings } from "@/content/site";
+import { XIcon } from "@/components/icons/XIcon";
 
 const year = new Date().getFullYear();
 
@@ -24,6 +25,7 @@ export default function Footer() {
             {[
               { href: siteSettings.github, icon: Github, label: "GitHub" },
               { href: siteSettings.linkedin, icon: Linkedin, label: "LinkedIn" },
+              { href: siteSettings.x, icon: XIcon, label: "X" },
               { href: `mailto:${siteSettings.email}`, icon: Mail, label: "Email" },
             ].map(({ href, icon: Icon, label }) => (
               <a
