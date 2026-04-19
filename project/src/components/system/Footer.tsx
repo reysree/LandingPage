@@ -19,7 +19,6 @@ export default function Footer() {
           <p className="text-sm break-words" style={{ color: "var(--text-muted)" }}>
             © {year}{" "}
             <span style={{ color: "var(--text-secondary)" }}>{siteSettings.name}</span>
-            {" "}- Built with Next.js & Tailwind
           </p>
           <div className="flex items-center gap-3">
             {[
