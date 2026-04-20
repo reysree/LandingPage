@@ -60,15 +60,17 @@ export function Chat() {
         animate={{ x: 0 }}
         transition={{ duration: 5.5, ease: "linear" }}
       >
-        <motion.div
-          className="absolute -top-12 right-2 sm:right-10 text-white text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-xl shadow-lg max-w-[120px] sm:max-w-none"
-          style={{ background: "var(--accent-primary)" }}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-        >
-          Pss.. Click me to know a secret
-        </motion.div>
+        {!open && (
+          <motion.div
+            className="absolute -top-12 right-2 sm:right-10 text-white text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-xl shadow-lg max-w-[120px] sm:max-w-none"
+            style={{ background: "var(--accent-primary)" }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
+            Pss.. Click me to know a secret
+          </motion.div>
+        )}
         <Image
           src="/cypher-watch.gif"
           alt="Chat with Cypher"
@@ -88,7 +90,7 @@ export function Chat() {
             className="fixed bottom-0 right-2 left-2 sm:left-auto sm:right-4 z-[70] w-[min(100%,24rem)] sm:w-80 lg:w-96 rounded-t-2xl shadow-2xl flex flex-col overflow-hidden"
             style={{
               height: "min(420px, 85dvh)",
-              background: "var(--bg-elevated)",
+              background: "var(--bg-chat-panel)",
               border: "1px solid var(--border-strong)",
               borderBottom: "none",
             }}

@@ -110,6 +110,8 @@
   --bg-canvas: transparent;
   --bg-surface: rgba(255, 251, 247, 0.82);
   --bg-elevated: rgba(245, 240, 235, 0.9);
+  /* Opaque surface for chat panel so content behind it does not show through */
+  --bg-chat-panel: rgb(245, 240, 235);
   --bg-overlay: rgba(231, 229, 228, 0.95);
 
   --text-primary: #2d2926;
@@ -151,6 +153,7 @@
   --bg-canvas: transparent;
   --bg-surface: rgba(18, 20, 26, 0.78);
   --bg-elevated: rgba(28, 32, 42, 0.88);
+  --bg-chat-panel: rgb(28, 32, 42);
   --bg-overlay: rgba(45, 50, 65, 0.95);
 
   --text-primary: #f0ede8;
